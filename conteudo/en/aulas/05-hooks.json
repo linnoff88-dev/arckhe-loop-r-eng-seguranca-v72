@@ -23,7 +23,7 @@
     },
     {
       "icone": "lupa",
-      "t": "raio.mjs and colisao.mjs from inema-agent-runtime"
+      "t": "raio.mjs and colisao.mjs from ARCKHÉ-agent-runtime"
     },
     {
       "icone": "terminal",
@@ -100,14 +100,14 @@
           "titulo": "raio.mjs (ask)",
           "texto": [
             "Before rm or git clean, it counts what there would be to delete (git clean runs with -n, list only) and asks for confirmation with the number of files, the size and the first paths.",
-            "From inema-agent-runtime (recipe R7). It deletes nothing: it only reads the disk."
+            "From ARCKHÉ-agent-runtime (recipe R7). It deletes nothing: it only reads the disk."
           ]
         },
         {
           "titulo": "colisao.mjs (ask)",
           "texto": [
             "Before editing, it warns if another session edited the same file in the last 30 minutes, or if it changed from outside (Codex, an editor, a person).",
-            "The record is kept in ~/.local/state/inema-runtime/toques.json. The collision strategy (worktree, queue) belongs to course 3."
+            "The record is kept in ~/.local/state/ARCKHÉ-runtime/toques.json. The collision strategy (worktree, queue) belongs to course 3."
           ]
         }
       ]
@@ -120,7 +120,7 @@
         {
           "rot": "File · kit/hooks/settings-exemplo.json",
           "icone": "arquivo",
-          "conteudo": "{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/raio.mjs\\\"\", \"timeout\": 15 }\n        ]\n      },\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pre\", \"timeout\": 10 }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pos\", \"timeout\": 10 }\n        ]\n      }\n    ]\n  }\n}"
+          "conteudo": "{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/raio.mjs\\\"\", \"timeout\": 15 }\n        ]\n      },\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pre\", \"timeout\": 10 }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pos\", \"timeout\": 10 }\n        ]\n      }\n    ]\n  }\n}"
         }
       ]
     },
@@ -132,7 +132,7 @@
         {
           "rot": "Terminal · guarda.py, raio.mjs and colisao.mjs",
           "icone": "play",
-          "conteudo": "[ -d ~/projetos/inema-agent-runtime ] || git clone -q https://github.com/inematds/inema-agent-runtime ~/projetos/inema-agent-runtime\nbash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh"
+          "conteudo": "[ -d ~/projetos/ARCKHÉ-agent-runtime ] || git clone -q https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime ~/projetos/ARCKHÉ-agent-runtime\nbash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh"
         }
       ],
       "saida": {
@@ -183,7 +183,7 @@
           "id": "e12",
           "titulo": "E12 · Decisions of the three hooks",
           "min": "10 min",
-          "texto": "Run the rehearsal. It clones inema-agent-runtime into ~/projetos if it's missing.",
+          "texto": "Run the rehearsal. It clones ARCKHÉ-agent-runtime into ~/projetos if it's missing.",
           "pronto": "<code>bash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh | grep -c '→ deny'</code> → <code>12</code>; and <code>rm -r build → ask</code>, <code>sessêo B edita o mesmo arquivo → ask</code> and <code>sessêo A edita de novo → -</code>."
         },
         {
@@ -286,18 +286,18 @@
           "icone": "lupa"
         },
         {
-          "t": "inema-agent-runtime: recipe R7, guard, and dashboard",
-          "href": "https://github.com/inematds/inema-agent-runtime/blob/main/runtime/receitas/R7-guarda-e-painel.md",
+          "t": "ARCKHÉ-agent-runtime: recipe R7, guard, and dashboard",
+          "href": "https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime/blob/main/runtime/receitas/R7-guarda-e-painel.md",
           "icone": "escudo"
         },
         {
           "t": "Course 3, Multi-agent: isolation and collision between sessions",
-          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/en/",
+          "href": "https://linnoff88-dev.github.io/arckhe-/en/",
           "icone": "robo"
         },
         {
           "t": "kit/hooks/guarda.py",
-          "href": "https://github.com/inematds/loop-r-eng-seguranca-v72/blob/main/kit/hooks/guarda.py",
+          "href": "https://github.com/linnoff88-dev/loop-r-eng-seguranca-v72/blob/main/kit/hooks/guarda.py",
           "icone": "arquivo"
         }
       ]

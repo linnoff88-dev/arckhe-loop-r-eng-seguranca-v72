@@ -23,7 +23,7 @@
     },
     {
       "icone": "lupa",
-      "t": "raio.mjs y colisao.mjs del inema-agent-runtime"
+      "t": "raio.mjs y colisao.mjs del ARCKHÉ-agent-runtime"
     },
     {
       "icone": "terminal",
@@ -100,14 +100,14 @@
           "titulo": "raio.mjs (ask)",
           "texto": [
             "Antes de rm o git clean, cuenta lo que habría para borrar (git clean corre con -n, solo lista) y pide confirmación con el número de archivos, el tamaño y las primeras rutas.",
-            "Del inema-agent-runtime (receta R7). No borra nada: solo lee el disco."
+            "Del ARCKHÉ-agent-runtime (receta R7). No borra nada: solo lee el disco."
           ]
         },
         {
           "titulo": "colisao.mjs (ask)",
           "texto": [
             "Antes de editar, avisa si otra sesión editó el mismo archivo en los últimos 30 minutos, o si cambió por fuera (Codex, editor, persona).",
-            "El registro queda en ~/.local/state/inema-runtime/toques.json. La estrategia de colisión (worktree, cola) es del curso 3."
+            "El registro queda en ~/.local/state/ARCKHÉ-runtime/toques.json. La estrategia de colisión (worktree, cola) es del curso 3."
           ]
         }
       ]
@@ -120,7 +120,7 @@
         {
           "rot": "Archivo · kit/hooks/settings-exemplo.json",
           "icone": "arquivo",
-          "conteudo": "{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/raio.mjs\\\"\", \"timeout\": 15 }\n        ]\n      },\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pre\", \"timeout\": 10 }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pos\", \"timeout\": 10 }\n        ]\n      }\n    ]\n  }\n}"
+          "conteudo": "{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/raio.mjs\\\"\", \"timeout\": 15 }\n        ]\n      },\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pre\", \"timeout\": 10 }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pos\", \"timeout\": 10 }\n        ]\n      }\n    ]\n  }\n}"
         }
       ]
     },
@@ -132,7 +132,7 @@
         {
           "rot": "Terminal · guarda.py, raio.mjs y colisao.mjs",
           "icone": "play",
-          "conteudo": "[ -d ~/projetos/inema-agent-runtime ] || git clone -q https://github.com/inematds/inema-agent-runtime ~/projetos/inema-agent-runtime\nbash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh"
+          "conteudo": "[ -d ~/projetos/ARCKHÉ-agent-runtime ] || git clone -q https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime ~/projetos/ARCKHÉ-agent-runtime\nbash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh"
         }
       ],
       "saida": {
@@ -183,7 +183,7 @@
           "id": "e12",
           "titulo": "E12 · Decisiones de los tres hooks",
           "min": "10 min",
-          "texto": "Ejecuta el ensayo. Clona inema-agent-runtime en ~/projetos si falta.",
+          "texto": "Ejecuta el ensayo. Clona ARCKHÉ-agent-runtime en ~/projetos si falta.",
           "pronto": "<code>bash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh | grep -c '→ deny'</code> → <code>12</code>; y <code>rm -r build → ask</code>, <code>sessêo B edita o mesmo arquivo → ask</code> y <code>sessêo A edita de novo → -</code>."
         },
         {
@@ -286,18 +286,18 @@
           "icone": "lupa"
         },
         {
-          "t": "inema-agent-runtime: receta R7, guardia y panel",
-          "href": "https://github.com/inematds/inema-agent-runtime/blob/main/runtime/receitas/R7-guarda-e-painel.md",
+          "t": "ARCKHÉ-agent-runtime: receta R7, guardia y panel",
+          "href": "https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime/blob/main/runtime/receitas/R7-guarda-e-painel.md",
           "icone": "escudo"
         },
         {
           "t": "Curso 3, Multiagente: aislamiento y colisión entre sesiones",
-          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/es/",
+          "href": "https://linnoff88-dev.github.io/arckhe-/es/",
           "icone": "robo"
         },
         {
           "t": "kit/hooks/guarda.py",
-          "href": "https://github.com/inematds/loop-r-eng-seguranca-v72/blob/main/kit/hooks/guarda.py",
+          "href": "https://github.com/linnoff88-dev/loop-r-eng-seguranca-v72/blob/main/kit/hooks/guarda.py",
           "icone": "arquivo"
         }
       ]

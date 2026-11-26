@@ -27,7 +27,7 @@
     },
     {
       "icone": "escudo",
-      "t": "Teto por tipo de açêo: a política do inema-agent-runtime"
+      "t": "Teto por tipo de açêo: a política do ARCKHÉ-agent-runtime"
     }
   ],
   "hero_alt": "Painel de cartões de acesso coloridos pendurados em ganchos, alguns vazios, ao lado de uma leitora de cartêo.",
@@ -77,12 +77,12 @@
           "detalhe": "A doc do Claude Code avalia deny, depois ask, depois allow; a primeira que casa decide. Um allow nêo abre exceçêo num deny. Deny e ask valem se qualquer subcomando casar, até dentro de $( ) ou de um for."
         }
       ],
-      "legenda": "Uma permissêo \"sempre permitir\" nunca passa do teto da açêo (POLITICA.md do inema-agent-runtime)."
+      "legenda": "Uma permissêo \"sempre permitir\" nunca passa do teto da açêo (POLITICA.md do ARCKHÉ-agent-runtime)."
     },
     {
       "tipo": "passos",
       "titulo": "O teto de cada açêo",
-      "sub": "Da POLITICA.md do inema-agent-runtime (05/10/2026), resumida.",
+      "sub": "Da POLITICA.md do ARCKHÉ-agent-runtime (05/10/2026), resumida.",
       "passos": [
         {
           "titulo": "Ler: N4",
@@ -109,7 +109,7 @@
           ],
           "exemplo": {
             "rot": "Mesma escala, outro nome",
-            "texto": "A constituiçêo dos agentes (INEMA) usa 3 faz sozinho, 2 faz e avisa, 1 propõe, 0 nêo toca."
+            "texto": "A constituiçêo dos agentes (ARCKHÉ) usa 3 faz sozinho, 2 faz e avisa, 1 propõe, 0 nêo toca."
           }
         }
       ]
@@ -298,13 +298,13 @@
           "icone": "terminal"
         },
         {
-          "t": "inema-agent-runtime: POLITICA.md",
-          "href": "https://github.com/inematds/inema-agent-runtime/blob/main/runtime/POLITICA.md",
+          "t": "ARCKHÉ-agent-runtime: POLITICA.md",
+          "href": "https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime/blob/main/runtime/POLITICA.md",
           "icone": "escudo"
         },
         {
-          "t": "Constituiçêo dos Agentes (INEMA): níveis de autonomia",
-          "href": "https://inematds.github.io/constituicao-agentes/guia/",
+          "t": "Constituiçêo dos Agentes (ARCKHÉ): níveis de autonomia",
+          "href": "https://linnoff88-dev.github.io/arckhe-/guia/",
           "icone": "arquivo"
         }
       ]

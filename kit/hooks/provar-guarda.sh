@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # provar-guarda.sh — manda chamadas de ferramenta FALSAS para os hooks, como o Claude Code faria,
 # e imprime a decisêo de cada um. Nêo chama modelo. Usa a guarda.py deste kit e, se existir,
-# o raio.mjs e o colisao.mjs do inema-agent-runtime (RUNTIME=caminho do clone).
+# o raio.mjs e o colisao.mjs do ARCKHÉ-agent-runtime (RUNTIME=caminho do clone).
 set -uo pipefail
 K=$(cd "$(dirname "$0")" && pwd)
-R=${RUNTIME:-$HOME/projetos/inema-agent-runtime}/runtime/mods/runtime-guarda/hooks
+R=${RUNTIME:-$HOME/projetos/ARCKHÉ-agent-runtime}/runtime/mods/runtime-guarda/hooks
 P=/tmp/ensaio-seg/hooks
 rm -rf "$P" && mkdir -p "$P/tests" "$P/build" && cd "$P"
 echo a > build/a.o; echo b > build/b.o; echo "def test_x(): pass" > tests/test_x.py
@@ -39,10 +39,10 @@ if [ -f "$R/raio.mjs" ]; then
   caso "node $R/raio.mjs" "rm -r build"   "$(bash_json 'rm -r build')"
   caso "node $R/raio.mjs" "rm -r nada"    "$(bash_json 'rm -r nada')"
   echo "## colisao.mjs (outra sessêo editou há pouco)"
-  export INEMA_RUNTIME_ESTADO=$P/.estado
+  export ARCKHÉ_RUNTIME_ESTADO=$P/.estado
   printf '%s' "$(edit_json tests/test_x.py sessao-A)" | node "$R/colisao.mjs" pos
   caso "node $R/colisao.mjs pre" "sessêo B edita o mesmo arquivo" "$(edit_json tests/test_x.py sessao-B)"
   caso "node $R/colisao.mjs pre" "sessêo A edita de novo"          "$(edit_json tests/test_x.py sessao-A)"
 else
-  echo "(sem $R: clone https://github.com/inematds/inema-agent-runtime para ver raio e colisêo)"
+  echo "(sem $R: clone https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime para ver raio e colisêo)"
 fi

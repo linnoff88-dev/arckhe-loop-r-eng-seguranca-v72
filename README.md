@@ -6,14 +6,14 @@
 </div>
 
 
-Curso aberto e gratuito do INEMA.CLUB no formato INEMA Learning v7.2, em portuguêÂªs, inglêÂªs e espanhol:
-**https://inematds.github.io/loop-r-eng-seguranca-v72/** êÂ· [EN](https://inematds.github.io/loop-r-eng-seguranca-v72/en/) êÂ· [ES](https://inematds.github.io/loop-r-eng-seguranca-v72/es/)
+Curso aberto e gratuito do ARCKHÉ AI no formato ARCKHÉ Learning v7.2, em portuguêÂªs, inglêÂªs e espanhol:
+**https://linnoff88-dev.github.io/arckhe-/** êÂ· [EN](https://linnoff88-dev.github.io/arckhe-/en/) êÂ· [ES](https://linnoff88-dev.github.io/arckhe-/es/)
 
 Oito aulas para quem roda os prêÂ³prios agentes (Claude Code ou Codex) em loop: trêÂ­ade letal, Regra de Dois, injeêÂ§êÂ£o pelo conteêÂºdo que o agente lêÂª, permissêÂµes por etapa, hooks de guarda, sandbox provado na sua mêÂ¡quina, porta humana para o irreversêÂ­vel e auditoria do loop. Tom defensivo: nada aqui ataca sistemas de terceiros; as demonstraêÂ§êÂµes sêÂ£o locais, com agente falso.
 
 ## O kit (`kit/`)
 
-Python 3 e bash; node sêÂ³ para os hooks do [inema-agent-runtime](https://github.com/inematds/inema-agent-runtime). Todo ensaio roda sem chamar modelo. TrêÂªs passos reais (`*/real.sh`) fazem uma chamada `claude -p` cada, pela sua assinatura.
+Python 3 e bash; node sêÂ³ para os hooks do [ARCKHÉ-agent-runtime](https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime). Todo ensaio roda sem chamar modelo. TrêÂªs passos reais (`*/real.sh`) fazem uma chamada `claude -p` cada, pela sua assinatura.
 
 | arquivo | aula | o que faz |
 |---|---|---|
@@ -27,7 +27,7 @@ Python 3 e bash; node sêÂ³ para os hooks do [inema-agent-runtime](https://g
 | `blocos/`, `saidas/`, `capturar.sh`, `conferir-blocos.py` | ê¢â¬â | os comandos das aulas, as saêÂ­das capturadas em 19/10/2026 e a conferêÂªncia de que o site mostra o que foi testado |
 
 ```bash
-git clone https://github.com/inematds/loop-r-eng-seguranca-v72 ~/projetos/loop-r-eng-seguranca-v72
+git clone https://github.com/linnoff88-dev/loop-r-eng-seguranca-v72 ~/projetos/loop-r-eng-seguranca-v72
 K=~/projetos/loop-r-eng-seguranca-v72/kit && python3 $K/triade.py $K/mapas/triagem.json
 ```
 
@@ -35,7 +35,7 @@ K=~/projetos/loop-r-eng-seguranca-v72/kit && python3 $K/triade.py $K/mapas/triag
 
 ConteêÂºdo em `conteudo/<idioma>/` (JSON). O HTML êÂ© gerado: `python3 gerar.py && python3 validar.py --links` (e `--lang en|es`). NêÂ£o edite o HTML êÂ  mêÂ£o.
 
-[INEMA.CLUB](https://inema.club) êÂ· conteêÂºdo aberto e gratuito
+[ARCKHÉ AI](https://ARCKHÉ AI) êÂ· conteêÂºdo aberto e gratuito
 
 ---
 

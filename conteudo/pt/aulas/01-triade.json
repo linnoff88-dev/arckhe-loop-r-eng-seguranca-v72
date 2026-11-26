@@ -85,7 +85,7 @@
             "Depois, o conteúdo: um leitor sem dados devolve só campos estruturados (aula 3)."
           ],
           "exemplo": {
-            "rot": "Regra do CHECKLIST da Tríade Letal (INEMA)",
+            "rot": "Regra do CHECKLIST da Tríade Letal (ARCKHÉ)",
             "texto": "O destino da mensagem é fixo no código, nunca um parâmetro que o modelo preenche."
           }
         },
@@ -136,7 +136,7 @@
         {
           "rot": "Terminal · demo e a sua matriz",
           "icone": "lupa",
-          "conteudo": "[ -d ~/projetos/triade-letal ] || git clone -q https://github.com/inematds/triade-letal ~/projetos/triade-letal\ncd ~/projetos/triade-letal\npython3 inventario.py --demo                    # exemplo fictício, para ver o formato\npython3 inventario.py --md /tmp/matriz.md > /dev/null && grep -c \"|\" /tmp/matriz.md"
+          "conteudo": "[ -d ~/projetos/triade-letal ] || git clone -q https://github.com/linnoff88-dev/triade-letal ~/projetos/triade-letal\ncd ~/projetos/triade-letal\npython3 inventario.py --demo                    # exemplo fictício, para ver o formato\npython3 inventario.py --md /tmp/matriz.md > /dev/null && grep -c \"|\" /tmp/matriz.md"
         }
       ],
       "saida": {
@@ -261,8 +261,8 @@
           "icone": "lupa"
         },
         {
-          "t": "Tríade Letal (INEMA): guia, CHECKLIST e inventario.py",
-          "href": "https://inematds.github.io/triade-letal/guia/",
+          "t": "Tríade Letal (ARCKHÉ): guia, CHECKLIST e inventario.py",
+          "href": "https://linnoff88-dev.github.io/arckhe-/guia/",
           "icone": "escudo"
         },
         {
@@ -272,7 +272,7 @@
         },
         {
           "t": "kit/triade.py",
-          "href": "https://github.com/inematds/loop-r-eng-seguranca-v72/blob/main/kit/triade.py",
+          "href": "https://github.com/linnoff88-dev/loop-r-eng-seguranca-v72/blob/main/kit/triade.py",
           "icone": "arquivo"
         }
       ]

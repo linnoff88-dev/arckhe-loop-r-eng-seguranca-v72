@@ -23,7 +23,7 @@
     },
     {
       "icone": "lupa",
-      "t": "raio.mjs e colisao.mjs do inema-agent-runtime"
+      "t": "raio.mjs e colisao.mjs do ARCKHÉ-agent-runtime"
     },
     {
       "icone": "terminal",
@@ -100,14 +100,14 @@
           "titulo": "raio.mjs (ask)",
           "texto": [
             "Antes de rm ou git clean, conta o que existiria para apagar (git clean roda com -n, só lista) e pede confirmaçêo com o número de arquivos, o tamanho e os primeiros caminhos.",
-            "Do inema-agent-runtime (receita R7). Nêo apaga nada: só lê o disco."
+            "Do ARCKHÉ-agent-runtime (receita R7). Nêo apaga nada: só lê o disco."
           ]
         },
         {
           "titulo": "colisao.mjs (ask)",
           "texto": [
             "Antes de editar, avisa se outra sessêo editou o mesmo arquivo nos últimos 30 minutos, ou se ele mudou por fora (Codex, editor, pessoa).",
-            "O registro fica em ~/.local/state/inema-runtime/toques.json. Estratégia de colisêo (worktree, fila) é do curso 3."
+            "O registro fica em ~/.local/state/ARCKHÉ-runtime/toques.json. Estratégia de colisêo (worktree, fila) é do curso 3."
           ]
         }
       ]
@@ -120,7 +120,7 @@
         {
           "rot": "Arquivo · kit/hooks/settings-exemplo.json",
           "icone": "arquivo",
-          "conteudo": "{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/raio.mjs\\\"\", \"timeout\": 15 }\n        ]\n      },\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pre\", \"timeout\": 10 }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/inema-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pos\", \"timeout\": 10 }\n        ]\n      }\n    ]\n  }\n}"
+          "conteudo": "{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/raio.mjs\\\"\", \"timeout\": 15 }\n        ]\n      },\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"python3 \\\"$HOME/projetos/loop-r-eng-seguranca-v72/kit/hooks/guarda.py\\\"\", \"timeout\": 10 },\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pre\", \"timeout\": 10 }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write|MultiEdit|NotebookEdit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"node \\\"$HOME/projetos/ARCKHÉ-agent-runtime/runtime/mods/runtime-guarda/hooks/colisao.mjs\\\" pos\", \"timeout\": 10 }\n        ]\n      }\n    ]\n  }\n}"
         }
       ]
     },
@@ -132,7 +132,7 @@
         {
           "rot": "Terminal · guarda, raio e colisêo",
           "icone": "play",
-          "conteudo": "[ -d ~/projetos/inema-agent-runtime ] || git clone -q https://github.com/inematds/inema-agent-runtime ~/projetos/inema-agent-runtime\nbash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh"
+          "conteudo": "[ -d ~/projetos/ARCKHÉ-agent-runtime ] || git clone -q https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime ~/projetos/ARCKHÉ-agent-runtime\nbash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh"
         }
       ],
       "saida": {
@@ -183,7 +183,7 @@
           "id": "e12",
           "titulo": "E12 · Decisões dos três hooks",
           "min": "10 min",
-          "texto": "Rode o ensaio. Ele clona o inema-agent-runtime em ~/projetos se faltar.",
+          "texto": "Rode o ensaio. Ele clona o ARCKHÉ-agent-runtime em ~/projetos se faltar.",
           "pronto": "<code>bash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh | grep -c '→ deny'</code> → <code>12</code>; e <code>rm -r build → ask</code>, <code>sessêo B edita o mesmo arquivo → ask</code> e <code>sessêo A edita de novo → -</code>."
         },
         {
@@ -286,18 +286,18 @@
           "icone": "lupa"
         },
         {
-          "t": "inema-agent-runtime: receita R7, guarda e painel",
-          "href": "https://github.com/inematds/inema-agent-runtime/blob/main/runtime/receitas/R7-guarda-e-painel.md",
+          "t": "ARCKHÉ-agent-runtime: receita R7, guarda e painel",
+          "href": "https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime/blob/main/runtime/receitas/R7-guarda-e-painel.md",
           "icone": "escudo"
         },
         {
           "t": "Curso 3, Multiagente: isolamento e colisêo entre sessões",
-          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/",
+          "href": "https://linnoff88-dev.github.io/arckhe-/",
           "icone": "robo"
         },
         {
           "t": "kit/hooks/guarda.py",
-          "href": "https://github.com/inematds/loop-r-eng-seguranca-v72/blob/main/kit/hooks/guarda.py",
+          "href": "https://github.com/linnoff88-dev/loop-r-eng-seguranca-v72/blob/main/kit/hooks/guarda.py",
           "icone": "arquivo"
         }
       ]

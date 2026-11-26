@@ -124,7 +124,7 @@
     {
       "tipo": "passos",
       "titulo": "Uma política real, anonimizada",
-      "sub": "Regras de açêo irreversível do CLAUDE.md global de uma máquina INEMA, e lições que viraram regra.",
+      "sub": "Regras de açêo irreversível do CLAUDE.md global de uma máquina ARCKHÉ, e lições que viraram regra.",
       "passos": [
         {
           "titulo": "Remover pede, cada vez",
@@ -319,17 +319,17 @@
       "links": [
         {
           "t": "Curso 2, aula 6: o loop headless (loop-longrun.sh, flock, MemoryMax)",
-          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/aulas/headless/",
+          "href": "https://linnoff88-dev.github.io/arckhe-/aulas/headless/",
           "icone": "robo"
         },
         {
-          "t": "inema-agent-runtime: receita R5, navegador com política",
-          "href": "https://github.com/inematds/inema-agent-runtime/blob/main/runtime/receitas/R5-navegador-com-politica.md",
+          "t": "ARCKHÉ-agent-runtime: receita R5, navegador com política",
+          "href": "https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime/blob/main/runtime/receitas/R5-navegador-com-politica.md",
           "icone": "escudo"
         },
         {
           "t": "kit/porta/porta.py",
-          "href": "https://github.com/inematds/loop-r-eng-seguranca-v72/blob/main/kit/porta/porta.py",
+          "href": "https://github.com/linnoff88-dev/loop-r-eng-seguranca-v72/blob/main/kit/porta/porta.py",
           "icone": "arquivo"
         }
       ]

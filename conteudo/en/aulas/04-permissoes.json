@@ -27,7 +27,7 @@
     },
     {
       "icone": "escudo",
-      "t": "A cap per type of action: the inema-agent-runtime policy"
+      "t": "A cap per type of action: the ARCKHÉ-agent-runtime policy"
     }
   ],
   "hero_alt": "A board of colored access cards hanging on hooks, some empty, next to a card reader.",
@@ -77,12 +77,12 @@
           "detalhe": "The Claude Code docs evaluate deny, then ask, then allow; the first rule that matches decides. An allow does not carve out an exception to a deny. Deny and ask apply if any subcommand matches, even inside $( ) or a for loop."
         }
       ],
-      "legenda": "An \"always allow\" permission never goes past the cap of the action (POLITICA.md of inema-agent-runtime)."
+      "legenda": "An \"always allow\" permission never goes past the cap of the action (POLITICA.md of ARCKHÉ-agent-runtime)."
     },
     {
       "tipo": "passos",
       "titulo": "The cap on each action",
-      "sub": "From the POLITICA.md of inema-agent-runtime (10/05/2026), summarized.",
+      "sub": "From the POLITICA.md of ARCKHÉ-agent-runtime (10/05/2026), summarized.",
       "passos": [
         {
           "titulo": "Read: N4",
@@ -109,7 +109,7 @@
           ],
           "exemplo": {
             "rot": "Same scale, different name",
-            "texto": "The agents' constitution (INEMA) uses 3 does it on its own, 2 does it and tells you, 1 proposes, 0 does not touch."
+            "texto": "The agents' constitution (ARCKHÉ) uses 3 does it on its own, 2 does it and tells you, 1 proposes, 0 does not touch."
           }
         }
       ]
@@ -298,13 +298,13 @@
           "icone": "terminal"
         },
         {
-          "t": "inema-agent-runtime: POLITICA.md",
-          "href": "https://github.com/inematds/inema-agent-runtime/blob/main/runtime/POLITICA.md",
+          "t": "ARCKHÉ-agent-runtime: POLITICA.md",
+          "href": "https://github.com/linnoff88-dev/ARCKHÉ-agent-runtime/blob/main/runtime/POLITICA.md",
           "icone": "escudo"
         },
         {
-          "t": "Agent Constitution (INEMA): autonomy levels",
-          "href": "https://inematds.github.io/constituicao-agentes/guia/",
+          "t": "Agent Constitution (ARCKHÉ): autonomy levels",
+          "href": "https://linnoff88-dev.github.io/arckhe-/guia/",
           "icone": "arquivo"
         }
       ]

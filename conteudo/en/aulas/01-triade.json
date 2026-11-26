@@ -85,7 +85,7 @@
             "Then the content: a reader with no data returns only structured fields (lesson 3)."
           ],
           "exemplo": {
-            "rot": "Rule from the Lethal Trifecta CHECKLIST (INEMA)",
+            "rot": "Rule from the Lethal Trifecta CHECKLIST (ARCKHÉ)",
             "texto": "The message destination is fixed in code, never a parameter the model fills in."
           }
         },
@@ -136,7 +136,7 @@
         {
           "rot": "Terminal · demo and your matrix",
           "icone": "lupa",
-          "conteudo": "[ -d ~/projetos/triade-letal ] || git clone -q https://github.com/inematds/triade-letal ~/projetos/triade-letal\ncd ~/projetos/triade-letal\npython3 inventario.py --demo                    # fictional example, to see the format\npython3 inventario.py --md /tmp/matriz.md > /dev/null && grep -c \"|\" /tmp/matriz.md"
+          "conteudo": "[ -d ~/projetos/triade-letal ] || git clone -q https://github.com/linnoff88-dev/triade-letal ~/projetos/triade-letal\ncd ~/projetos/triade-letal\npython3 inventario.py --demo                    # fictional example, to see the format\npython3 inventario.py --md /tmp/matriz.md > /dev/null && grep -c \"|\" /tmp/matriz.md"
         }
       ],
       "saida": {
@@ -261,8 +261,8 @@
           "icone": "lupa"
         },
         {
-          "t": "Lethal Trifecta (INEMA): guide, CHECKLIST and inventario.py",
-          "href": "https://inematds.github.io/triade-letal/guia/",
+          "t": "Lethal Trifecta (ARCKHÉ): guide, CHECKLIST and inventario.py",
+          "href": "https://linnoff88-dev.github.io/arckhe-/guia/",
           "icone": "escudo"
         },
         {
@@ -272,7 +272,7 @@
         },
         {
           "t": "kit/triade.py",
-          "href": "https://github.com/inematds/loop-r-eng-seguranca-v72/blob/main/kit/triade.py",
+          "href": "https://github.com/linnoff88-dev/loop-r-eng-seguranca-v72/blob/main/kit/triade.py",
           "icone": "arquivo"
         }
       ]

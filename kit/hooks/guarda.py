@@ -14,7 +14,7 @@ Responde {"hookSpecificOutput": {"permissionDecision": "deny", ...}} ou nêo imp
 O que ela NêO pega (é regex e leitura de comando, nêo sandbox): um programa que grava por conta própria
 (python3 -c "open('goal.md','w')", node -e, perl -e, um script seu), caminho montado em variável,
 eval, base64 | sh. Para isso servem o deny Edit(...)/Write(...) da aula 4 e o sandbox da aula 6.
-Para o "apagar com confirmaçêo" (ask com a contagem do que some), use o raio.mjs do inema-agent-runtime.
+Para o "apagar com confirmaçêo" (ask com a contagem do que some), use o raio.mjs do ARCKHÉ-agent-runtime.
 Testar sem Claude: printf '{"tool_name":"Bash","tool_input":{"command":"git reset --hard"}}' | python3 guarda.py
 """
 import json
