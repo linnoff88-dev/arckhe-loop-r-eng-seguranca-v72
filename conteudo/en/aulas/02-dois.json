@@ -111,7 +111,7 @@
         {
           "rot": "File · kit/mapas/corretor-dois.json",
           "icone": "arquivo",
-          "conteudo": "{\n  \"loop\": \"corretor noturno de bugs, em duas sessões\",\n  \"sessoes\": [\n    {\n      \"nome\": \"leitor\",\n      \"ferramentas\": [\n        { \"nome\": \"ler o texto da issue (escrito por qualquer pessoa)\", \"terceiros\": true },\n        { \"nome\": \"gravar tarefa.json (arquivo, teste que falha, passos)\", \"muda_estado\": true }\n      ]\n    },\n    {\n      \"nome\": \"corretor\",\n      \"nova_sessao\": true,\n      \"ferramentas\": [\n        { \"nome\": \"ler tarefa.json (campos revisados por você)\" },\n        { \"nome\": \"ler o repositório privado\", \"privado\": true },\n        { \"nome\": \"editar arquivos e rodar comandos no repositório\", \"muda_estado\": true }\n      ]\n    },\n    {\n      \"nome\": \"publicar\",\n      \"humano\": true,\n      \"ferramentas\": [\n        { \"nome\": \"ler o diff\", \"privado\": true },\n        { \"nome\": \"git push e abrir PR\", \"saida\": true, \"muda_estado\": true },\n        { \"nome\": \"ler comentários de revisão no PR\", \"terceiros\": true }\n      ]\n    }\n  ]\n}"
+          "conteudo": "{\n  \"loop\": \"corretor noturno de bugs, em duas sessões\",\n  \"sessoes\": [\n    {\n      \"nome\": \"leitor\",\n      \"ferramentas\": [\n        { \"nome\": \"ler o texto da issue (escrito por qualquer pessoa)\", \"terceiros\": true },\n        { \"nome\": \"gravar tarefa.json (arquivo, teste que falha, passos)\", \"muda_estado\": true }\n      ]\n    },\n    {\n      \"nome\": \"corretor\",\n      \"nova_sessao\": true,\n      \"ferramentas\": [\n        { \"nome\": \"ler tarefa.json (campos revisados por você)\" },\n        { \"nome\": \"ler o repositório privado\", \"privado\": true },\n        { \"nome\": \"editar arquivos e rodar comandos no repositório\", \"muda_estado\": true }\n      ]\n    },\n    {\n      \"nome\": \"publicar\",\n      \"humano\": true,\n      \"ferramentas\": [\n        { \"nome\": \"ler o diff\", \"privado\": true },\n        { \"nome\": \"git push e abrir PR\", \"saida\": true, \"muda_estado\": true },\n        { \"nome\": \"ler comentários de revisêo no PR\", \"terceiros\": true }\n      ]\n    }\n  ]\n}"
         }
       ],
       "saida": {
@@ -119,7 +119,7 @@
         "abas": [
           {
             "rot": "Captured output (10/19/2026)",
-            "html": "<pre>corretor     privado:sim  terceiros:sim  saída:não  → OK\nTRÍADE: nenhuma sessão autônoma com as três (1 sessão)\nsaída: 0\n## corretor (Regra de Dois)\ncorretor     A terceiros:sim  B privado:sim  C muda/sai:sim  → FECHA\nREGRA DE DOIS: violada em corretor\nsaída: 1\n## corretor-dois (Regra de Dois)\nleitor       A terceiros:sim  B privado:não  C muda/sai:sim  → OK\ncorretor     A terceiros:não  B privado:sim  C muda/sai:sim  → OK\npublicar     A terceiros:sim  B privado:sim  C muda/sai:sim  → SUPERVISIONADA\naviso: publicar tem as três, mas com humano aprovando cada ação\nREGRA DE DOIS: nenhuma sessão autônoma com as três (3 sessões)\nsaída: 0</pre><p>The fixer alone passes the trifecta (it has no outbound channel) and fails the Rule of Two. Split, the reader gets A and C, the fixer gets B and C, and publishing gets all three under supervision.</p>"
+            "html": "<pre>corretor     privado:sim  terceiros:sim  saída:nêo  → OK\nTRÍADE: nenhuma sessêo autônoma com as três (1 sessêo)\nsaída: 0\n## corretor (Regra de Dois)\ncorretor     A terceiros:sim  B privado:sim  C muda/sai:sim  → FECHA\nREGRA DE DOIS: violada em corretor\nsaída: 1\n## corretor-dois (Regra de Dois)\nleitor       A terceiros:sim  B privado:nêo  C muda/sai:sim  → OK\ncorretor     A terceiros:nêo  B privado:sim  C muda/sai:sim  → OK\npublicar     A terceiros:sim  B privado:sim  C muda/sai:sim  → SUPERVISIONADA\naviso: publicar tem as três, mas com humano aprovando cada açêo\nREGRA DE DOIS: nenhuma sessêo autônoma com as três (3 sessões)\nsaída: 0</pre><p>The fixer alone passes the trifecta (it has no outbound channel) and fails the Rule of Two. Split, the reader gets A and C, the fixer gets B and C, and publishing gets all three under supervision.</p>"
           },
           {
             "rot": "Common mistake: splitting without cleaning",
@@ -138,14 +138,14 @@
           "titulo": "E4 · Passes one, fails the other",
           "min": "5 min",
           "texto": "Run the rehearsal block.",
-          "pronto": "the first call ends in <code>saída: 0</code>; fixer under the Rule of Two ends in <code>REGRA DE DOIS: violada em corretor</code> and <code>saída: 1</code>; corretor-dois ends in <code>REGRA DE DOIS: nenhuma sessão autônoma com as três (3 sessões)</code> and <code>saída: 0</code>."
+          "pronto": "the first call ends in <code>saída: 0</code>; fixer under the Rule of Two ends in <code>REGRA DE DOIS: violada em corretor</code> and <code>saída: 1</code>; corretor-dois ends in <code>REGRA DE DOIS: nenhuma sessêo autônoma com as três (3 sessões)</code> and <code>saída: 0</code>."
         },
         {
           "id": "e5",
           "titulo": "E5 · Your map under the Rule of Two",
           "min": "20 min",
           "texto": "Run your ~/meu-mapa.json with --regra dois. For each session that fails, choose: remove a letter, open a new clean-context session (\"nova_sessao\": true), or add a human (\"humano\": true). Write the choice down in the map.",
-          "pronto": "<code>K=~/projetos/loop-r-eng-seguranca-v72/kit; python3 $K/triade.py ~/meu-mapa.json --regra dois; echo $?</code> → <code>REGRA DE DOIS: nenhuma sessão autônoma com as três</code> and <code>0</code>."
+          "pronto": "<code>K=~/projetos/loop-r-eng-seguranca-v72/kit; python3 $K/triade.py ~/meu-mapa.json --regra dois; echo $?</code> → <code>REGRA DE DOIS: nenhuma sessêo autônoma com as três</code> and <code>0</code>."
         }
       ]
     },

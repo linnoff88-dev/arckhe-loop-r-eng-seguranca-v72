@@ -112,7 +112,7 @@
         "abas": [
           {
             "rot": "Captured output (10/19/2026)",
-            "html": "<pre>pedido 20261019-065013-4181: enviar-email → cliente@exemplo.invalid (30 caracteres). Aguardando aprovação humana.\nRECUSADO: 20261019-065013-4181 sem aprovação humana\nsaída: 1\nRECUSADO: aprovar exige um terminal humano (stdin não é tty)\nsaída: 1\nAPROVADO 20261019-065013-4181 (hash 50a9d2859698c516)\nRECUSADO: o conteúdo de 20261019-065013-4181 mudou depois da aprovação\nsaída: 1\nAPROVADO 20261019-065014-b7be (hash 50a9d2859698c516)\nEXECUTADO 20261019-065014-b7be: enviar-email → cliente@exemplo.invalid\nsaída: 0\nRECUSADO: 20261019-065014-b7be sem aprovação humana\nsaída: 1\n1</pre><p>Four refusals and one execution; the 1 at the end is the only line in saida.log. The ids change on every run.</p>"
+            "html": "<pre>pedido 20261019-065013-4181: enviar-email → cliente@exemplo.invalid (30 caracteres). Aguardando aprovaçêo humana.\nRECUSADO: 20261019-065013-4181 sem aprovaçêo humana\nsaída: 1\nRECUSADO: aprovar exige um terminal humano (stdin nêo é tty)\nsaída: 1\nAPROVADO 20261019-065013-4181 (hash 50a9d2859698c516)\nRECUSADO: o conteúdo de 20261019-065013-4181 mudou depois da aprovaçêo\nsaída: 1\nAPROVADO 20261019-065014-b7be (hash 50a9d2859698c516)\nEXECUTADO 20261019-065014-b7be: enviar-email → cliente@exemplo.invalid\nsaída: 0\nRECUSADO: 20261019-065014-b7be sem aprovaçêo humana\nsaída: 1\n1</pre><p>Four refusals and one execution; the 1 at the end is the only line in saida.log. The ids change on every run.</p>"
           },
           {
             "rot": "In real life",
@@ -221,7 +221,7 @@
           "titulo": "E18 · The gate in the rehearsal",
           "min": "10 min",
           "texto": "Run the gate rehearsal. Then approve a request yourself, in your own terminal: python3 porta.py pedir, aprovar and executar.",
-          "pronto": "the rehearsal shows four <code>RECUSADO</code> lines, one <code>EXECUTADO</code>, and ends with <code>1</code>; your <code>executar</code> prints <code>EXECUTADO</code> once and, when repeated, <code>sem aprovação humana</code>."
+          "pronto": "the rehearsal shows four <code>RECUSADO</code> lines, one <code>EXECUTADO</code>, and ends with <code>1</code>; your <code>executar</code> prints <code>EXECUTADO</code> once and, when repeated, <code>sem aprovaçêo humana</code>."
         },
         {
           "id": "e19",
@@ -252,7 +252,7 @@
             "To be faster"
           ],
           "certa": 1,
-          "explica": "You approve what you read. If someone (or the agent) changes the text afterward, executar refuses: \"o conteúdo mudou depois da aprovação\" (the content changed after approval).",
+          "explica": "You approve what you read. If someone (or the agent) changes the text afterward, executar refuses: \"o conteúdo mudou depois da aprovaçêo\" (the content changed after approval).",
           "ref": "diagrama",
           "cert": true
         },

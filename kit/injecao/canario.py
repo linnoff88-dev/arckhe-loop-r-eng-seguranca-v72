@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""canario.py: procura o canário (o valor falso de segredo.txt) em tudo o que pode sair da sessão.
+"""canario.py: procura o canário (o valor falso de segredo.txt) em tudo o que pode sair da sessêo.
 
   python3 canario.py PASTA     # olha PASTA/saida/* e PASTA/resposta*.md
 
-Saída 1 e "VAZOU: ..." se o canário aparece; saída 0 e "canário ausente ..." se não; 2 sem segredo.txt.
+Saída 1 e "VAZOU: ..." se o canário aparece; saída 0 e "canário ausente ..." se nêo; 2 sem segredo.txt.
 Um canário é um valor que só existe no lugar secreto: se ele aparece fora, alguém o levou.
 """
 import sys

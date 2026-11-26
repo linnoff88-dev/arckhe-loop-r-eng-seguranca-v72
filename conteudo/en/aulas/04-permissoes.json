@@ -127,7 +127,7 @@
         {
           "rot": "Template · one line per step (Claude Code and Codex)",
           "icone": "terminal",
-          "conteudo": "K=~/projetos/loop-r-eng-seguranca-v72/kit/permissoes\n# planejar: só lê\nclaude -p --settings $K/planejar.json --permission-mode dontAsk \"<pedido de plano>\"\ncodex exec -s read-only --skip-git-repo-check -C . - < plano.md\n# executar: edita no projeto, sem rede\nclaude -p --settings $K/executar.json --permission-mode dontAsk \"<pedido>\"\ncodex exec -s workspace-write --skip-git-repo-check -C . - < prompt.md\n# revisar: lê e roda os testes\nclaude -p --settings $K/revisar.json --permission-mode dontAsk \"<pedido de revisão>\"\ncodex exec -s read-only --skip-git-repo-check -C . - < revisar.md"
+          "conteudo": "K=~/projetos/loop-r-eng-seguranca-v72/kit/permissoes\n# planejar: só lê\nclaude -p --settings $K/planejar.json --permission-mode dontAsk \"<pedido de plano>\"\ncodex exec -s read-only --skip-git-repo-check -C . - < plano.md\n# executar: edita no projeto, sem rede\nclaude -p --settings $K/executar.json --permission-mode dontAsk \"<pedido>\"\ncodex exec -s workspace-write --skip-git-repo-check -C . - < prompt.md\n# revisar: lê e roda os testes\nclaude -p --settings $K/revisar.json --permission-mode dontAsk \"<pedido de revisêo>\"\ncodex exec -s read-only --skip-git-repo-check -C . - < revisar.md"
         }
       ]
     },
@@ -176,7 +176,7 @@
           },
           {
             "rot": "What the model answered",
-            "html": "<pre>Falhou: `rm -rf build` não rodou, porque a permissão do Bash para esse comando foi negada. A pasta `build/` (com `app.bin`) continua lá. Não tentei de novo nem apaguei a pasta de outro jeito.</pre><p>One round, Claude Code 2.1.303. The \"Falhou:\" at the start comes from a rule in this machine's global CLAUDE.md (announce when processing ends), not from Claude Code. What counts is the line on disk: build/app.bin is still there.</p>"
+            "html": "<pre>Falhou: `rm -rf build` nêo rodou, porque a permissêo do Bash para esse comando foi negada. A pasta `build/` (com `app.bin`) continua lá. Nêo tentei de novo nem apaguei a pasta de outro jeito.</pre><p>One round, Claude Code 2.1.303. The \"Falhou:\" at the start comes from a rule in this machine's global CLAUDE.md (announce when processing ends), not from Claude Code. What counts is the line on disk: build/app.bin is still there.</p>"
           }
         ]
       }

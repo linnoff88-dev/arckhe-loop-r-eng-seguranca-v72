@@ -7,7 +7,7 @@ Imita, de forma SIMPLIFICADA, o que a doc oficial descreve (code.claude.com/docs
 19/10/2026): ordem fixa deny → ask → allow; o comando é partido em &&, ||, ;, |, & e quebra de linha, e
 o conteúdo de $( … ) também conta; deny e ask valem se QUALQUER subcomando casar; allow só aprova se
 TODOS casarem; "Bash(x *)" casa "x" e "x …"; regra sem * casa só o texto exato; "Bash" sozinho casa tudo.
-Não cobre tudo (wrappers, find, redirecionamentos, modos): quem decide de verdade é o Claude Code.
+Nêo cobre tudo (wrappers, find, redirecionamentos, modos): quem decide de verdade é o Claude Code.
 Saída: 0 allow · 1 deny · 3 ask · 4 sem regra (pergunta no terminal; recusa com --permission-mode dontAsk).
 """
 import json

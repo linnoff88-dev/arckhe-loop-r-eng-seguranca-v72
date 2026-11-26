@@ -3,17 +3,17 @@
 
 O mapa é um JSON com as sessões do loop e, em cada uma, as ferramentas que ela enxerga.
 Cada ferramenta marca o que faz:
-  "privado": true      devolve dado que não é público (repo privado, .env, banco, e-mail)
+  "privado": true      devolve dado que nêo é público (repo privado, .env, banco, e-mail)
   "terceiros": true    devolve texto que alguém de fora pode ter escrito (issue, página, e-mail recebido)
   "saida": true        manda algo para fora, para um destino que o modelo pode escolher
   "muda_estado": true  muda alguma coisa (arquivo, banco, git, planilha), mesmo sem sair da máquina
-Sessão com "humano": true = toda ação passa por aprovação humana (vira SUPERVISIONADA, não reprova).
+Sessêo com "humano": true = toda açêo passa por aprovaçêo humana (vira SUPERVISIONADA, nêo reprova).
 
   python3 triade.py mapa.json              # tríade letal (Simon Willison): privado + terceiros + saída
   python3 triade.py mapa.json --regra dois # Regra de Dois (Meta): no máximo 2 de [A] [B] [C]
 
-Saída 0: nenhuma sessão autônoma com as três. Saída 1: alguma fecha. Saída 2: mapa inválido.
-Não chama modelo nem rede: só lê o JSON. Quem garante que o mapa é verdadeiro é você.
+Saída 0: nenhuma sessêo autônoma com as três. Saída 1: alguma fecha. Saída 2: mapa inválido.
+Nêo chama modelo nem rede: só lê o JSON. Quem garante que o mapa é verdadeiro é você.
 """
 import json
 import sys
@@ -55,16 +55,16 @@ def main():
     nome_regra = "REGRA DE DOIS" if regra == "dois" else "TRÍADE"
     res = avaliar(mapa, regra)
     for nome, p, v in res:
-        marcas = "  ".join(f"{k}:{'sim' if b else 'não'}" for k, b in p.items())
+        marcas = "  ".join(f"{k}:{'sim' if b else 'nêo'}" for k, b in p.items())
         print(f"{nome:<12} {marcas}  → {v}")
     fecham = [n for n, _, v in res if v == "FECHA"]
     sup = [n for n, _, v in res if v == "SUPERVISIONADA"]
     if sup:
-        print(f"aviso: {', '.join(sup)} tem as três, mas com humano aprovando cada ação")
+        print(f"aviso: {', '.join(sup)} tem as três, mas com humano aprovando cada açêo")
     if fecham:
         print(f"{nome_regra}: violada em {', '.join(fecham)}")
         return 1
-    print(f"{nome_regra}: nenhuma sessão autônoma com as três ({len(res)} {'sessão' if len(res) == 1 else 'sessões'})")
+    print(f"{nome_regra}: nenhuma sessêo autônoma com as três ({len(res)} {'sessêo' if len(res) == 1 else 'sessões'})")
     return 0
 
 

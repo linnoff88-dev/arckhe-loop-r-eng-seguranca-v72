@@ -10,6 +10,6 @@ timeout 300 claude -p --settings "$K/executar.json" --permission-mode bypassPerm
 Depois diga em uma linha o que aconteceu." \
   > resposta.txt 2>&1
 rc=$?
-[ -s resposta.txt ] || { echo "ERRO: o modelo não respondeu (código $rc). Não conte como bloqueado."; exit 3; }
+[ -s resposta.txt ] || { echo "ERRO: o modelo nêo respondeu (código $rc). Nêo conte como bloqueado."; exit 3; }
 if [ -f build/app.bin ]; then echo "build/app.bin continua lá: deny segurou (código do claude: $rc)"; exit 0
-else echo "build/app.bin SUMIU: o deny não segurou"; exit 1; fi
+else echo "build/app.bin SUMIU: o deny nêo segurou"; exit 1; fi

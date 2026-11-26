@@ -140,7 +140,7 @@
         "abas": [
           {
             "rot": "Captured output (10/19/2026)",
-            "html": "<pre>## guarda.py (nega o irreversível)\ngit push --force origin main       → deny\ngit reset --hard HEAD~3            → deny\nfind . -name '*.o' -delete         → deny\nrm -rf ~                           → deny\npkill -f servidor                  → deny\npython3 -m pytest -q               → -\nEdit tests/test_x.py               → deny\nEdit src/app.py                    → -\n## guarda.py: escrita via Bash nos protegidos\nsed -i s/x/y/ tests/test_x.py      → deny\necho pronto &gt; goal.md              → deny\necho {..} &gt; .claude/settings.local → deny\nmv goal.md /tmp/                   → deny\nbash -c 'rm -rf ~'                 → deny\ngit restore .                      → deny\npytest -q tests/ &gt; log.txt         → -\ngit restore --staged app.py        → -\n## o que a guarda NÃO pega (para isso: deny Edit/Write da aula 4 e sandbox da aula 6)\npython3 -c open('goal.md','w')     → -\n## raio.mjs (apagar pede confirmação, com a contagem)\nrm -r build                        → ask\nrm -r nada                         → -\n## colisao.mjs (outra sessão editou há pouco)\nsessão B edita o mesmo arquivo    → ask\nsessão A edita de novo            → -</pre><p>\"-\" means no decision: the normal flow (rules and mode) decides. pytest with output going to log.txt and git restore --staged pass, because they don't touch the protected files. The python3 -c line is the declared hole: the guard doesn't see what a program writes. An rm of a folder that doesn't exist doesn't ask anything, because there is nothing to delete.</p>"
+            "html": "<pre>## guarda.py (nega o irreversível)\ngit push --force origin main       → deny\ngit reset --hard HEAD~3            → deny\nfind . -name '*.o' -delete         → deny\nrm -rf ~                           → deny\npkill -f servidor                  → deny\npython3 -m pytest -q               → -\nEdit tests/test_x.py               → deny\nEdit src/app.py                    → -\n## guarda.py: escrita via Bash nos protegidos\nsed -i s/x/y/ tests/test_x.py      → deny\necho pronto &gt; goal.md              → deny\necho {..} &gt; .claude/settings.local → deny\nmv goal.md /tmp/                   → deny\nbash -c 'rm -rf ~'                 → deny\ngit restore .                      → deny\npytest -q tests/ &gt; log.txt         → -\ngit restore --staged app.py        → -\n## o que a guarda NêO pega (para isso: deny Edit/Write da aula 4 e sandbox da aula 6)\npython3 -c open('goal.md','w')     → -\n## raio.mjs (apagar pede confirmaçêo, com a contagem)\nrm -r build                        → ask\nrm -r nada                         → -\n## colisao.mjs (outra sessêo editou há pouco)\nsessêo B edita o mesmo arquivo    → ask\nsessêo A edita de novo            → -</pre><p>\"-\" means no decision: the normal flow (rules and mode) decides. pytest with output going to log.txt and git restore --staged pass, because they don't touch the protected files. The python3 -c line is the declared hole: the guard doesn't see what a program writes. An rm of a folder that doesn't exist doesn't ask anything, because there is nothing to delete.</p>"
           },
           {
             "rot": "Common mistake: a hook that only warns",
@@ -165,11 +165,11 @@
         "abas": [
           {
             "rot": "Captured output (10/19/2026)",
-            "html": "<pre>app.txt: mudança não commitada preservada\nbuild/a.o: continua lá\nsaída: 0</pre>"
+            "html": "<pre>app.txt: mudança nêo commitada preservada\nbuild/a.o: continua lá\nsaída: 0</pre>"
           },
           {
             "rot": "What the model answered",
-            "html": "<pre>- `git reset --hard`: não rodou. Um hook de segurança bloqueou o comando porque ele descartaria trabalho não commitado (o `app.txt` modificado). O hook pede que você autorize, então não tentei outro caminho.\n- `rm -r build`: não rodou. Um hook pediu confirmação antes de apagar `build/a.o` (1 arquivo, 1 KB) e perguntou se existe backup. Nada foi apagado.\n(…)</pre><p>Cut (…): the last line, a notice requested by this machine's global CLAUDE.md. One round, Claude Code 2.1.303: the guard's deny and raio.mjs's ask, with no terminal to confirm, left both commands unrun.</p>"
+            "html": "<pre>- `git reset --hard`: nêo rodou. Um hook de segurança bloqueou o comando porque ele descartaria trabalho nêo commitado (o `app.txt` modificado). O hook pede que você autorize, entêo nêo tentei outro caminho.\n- `rm -r build`: nêo rodou. Um hook pediu confirmaçêo antes de apagar `build/a.o` (1 arquivo, 1 KB) e perguntou se existe backup. Nada foi apagado.\n(…)</pre><p>Cut (…): the last line, a notice requested by this machine's global CLAUDE.md. One round, Claude Code 2.1.303: the guard's deny and raio.mjs's ask, with no terminal to confirm, left both commands unrun.</p>"
           }
         ]
       }
@@ -184,14 +184,14 @@
           "titulo": "E12 · Decisions of the three hooks",
           "min": "10 min",
           "texto": "Run the rehearsal. It clones inema-agent-runtime into ~/projetos if it's missing.",
-          "pronto": "<code>bash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh | grep -c '→ deny'</code> → <code>12</code>; and <code>rm -r build → ask</code>, <code>sessão B edita o mesmo arquivo → ask</code> and <code>sessão A edita de novo → -</code>."
+          "pronto": "<code>bash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh | grep -c '→ deny'</code> → <code>12</code>; and <code>rm -r build → ask</code>, <code>sessêo B edita o mesmo arquivo → ask</code> and <code>sessêo A edita de novo → -</code>."
         },
         {
           "id": "e13",
           "titulo": "E13 · The guard in a real session",
           "min": "5 min",
           "texto": "Run the real block (one call, uses your subscription quota).",
-          "pronto": "<code>app.txt: mudança não commitada preservada</code>, <code>build/a.o: continua lá</code> and <code>saída: 0</code>."
+          "pronto": "<code>app.txt: mudança nêo commitada preservada</code>, <code>build/a.o: continua lá</code> and <code>saída: 0</code>."
         },
         {
           "id": "e14",

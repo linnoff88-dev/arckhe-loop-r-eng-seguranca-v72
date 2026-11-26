@@ -16,11 +16,11 @@ bash -c 'rm -rf ~'                 → deny
 git restore .                      → deny
 pytest -q tests/ > log.txt         → -
 git restore --staged app.py        → -
-## o que a guarda NÃO pega (para isso: deny Edit/Write da aula 4 e sandbox da aula 6)
+## o que a guarda NêO pega (para isso: deny Edit/Write da aula 4 e sandbox da aula 6)
 python3 -c open('goal.md','w')     → -
-## raio.mjs (apagar pede confirmação, com a contagem)
+## raio.mjs (apagar pede confirmaçêo, com a contagem)
 rm -r build                        → ask
 rm -r nada                         → -
-## colisao.mjs (outra sessão editou há pouco)
-sessão B edita o mesmo arquivo    → ask
-sessão A edita de novo            → -
+## colisao.mjs (outra sessêo editou há pouco)
+sessêo B edita o mesmo arquivo    → ask
+sessêo A edita de novo            → -

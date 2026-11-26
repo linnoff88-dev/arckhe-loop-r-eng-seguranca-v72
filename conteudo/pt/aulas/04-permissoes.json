@@ -5,7 +5,7 @@
   "titulo": "Permissões por etapa: capacidades e política",
   "titulo_curto": "Permissões por etapa",
   "minutos": 20,
-  "lead": "Planejar só lê. Executar edita o código e roda os testes. Revisar lê e roda os testes. Se as três etapas rodam com a mesma permissão, o loop inteiro tem a permissão da mais perigosa. Nesta aula cada etapa ganha o próprio settings.json no Claude Code e o próprio -s no Codex, e você vê onde uma regra de deny deixa passar.",
+  "lead": "Planejar só lê. Executar edita o código e roda os testes. Revisar lê e roda os testes. Se as três etapas rodam com a mesma permissêo, o loop inteiro tem a permissêo da mais perigosa. Nesta aula cada etapa ganha o próprio settings.json no Claude Code e o próprio -s no Codex, e você vê onde uma regra de deny deixa passar.",
   "objetivo": "dar a cada etapa do loop só as permissões que ela usa, com deny no settings.json do Claude Code e -s no Codex.",
   "competencias": [
     "escrever-regras-deny-ask-allow",
@@ -19,7 +19,7 @@
     },
     {
       "icone": "x",
-      "t": "Por que Bash(rm -rf *) não pega rm -r -f"
+      "t": "Por que Bash(rm -rf *) nêo pega rm -r -f"
     },
     {
       "icone": "camadas",
@@ -27,14 +27,14 @@
     },
     {
       "icone": "escudo",
-      "t": "Teto por tipo de ação: a política do inema-agent-runtime"
+      "t": "Teto por tipo de açêo: a política do inema-agent-runtime"
     }
   ],
-  "hero_alt": "Painel de cartões de acesso coloridos pendurados em ganchos, alguns vazios, ao lado de uma leitora de cartão.",
+  "hero_alt": "Painel de cartões de acesso coloridos pendurados em ganchos, alguns vazios, ao lado de uma leitora de cartêo.",
   "secoes": [
     {
       "tipo": "diagrama",
-      "titulo": "Uma permissão por etapa",
+      "titulo": "Uma permissêo por etapa",
       "sub": "Clique em cada etapa.",
       "nos": [
         {
@@ -62,26 +62,26 @@
               "t": "deny: rm, push, reset, curl, tests/, .env"
             }
           ],
-          "detalhe": "Claude Code: kit/permissoes/executar.json. Codex: -s workspace-write, que deixa escrever só no workspace e, por padrão, sem rede."
+          "detalhe": "Claude Code: kit/permissoes/executar.json. Codex: -s workspace-write, que deixa escrever só no workspace e, por padrêo, sem rede."
         },
         {
           "icone": "check",
           "titulo": "Revisar",
           "sub": "lê e testa",
-          "detalhe": "Claude Code: kit/permissoes/revisar.json (pytest e git diff liberados, nenhuma edição). Codex: -s read-only."
+          "detalhe": "Claude Code: kit/permissoes/revisar.json (pytest e git diff liberados, nenhuma ediçêo). Codex: -s read-only."
         },
         {
           "icone": "portao",
-          "titulo": "Decisão",
+          "titulo": "Decisêo",
           "sub": "deny → ask → allow",
-          "detalhe": "A doc do Claude Code avalia deny, depois ask, depois allow; a primeira que casa decide. Um allow não abre exceção num deny. Deny e ask valem se qualquer subcomando casar, até dentro de $( ) ou de um for."
+          "detalhe": "A doc do Claude Code avalia deny, depois ask, depois allow; a primeira que casa decide. Um allow nêo abre exceçêo num deny. Deny e ask valem se qualquer subcomando casar, até dentro de $( ) ou de um for."
         }
       ],
-      "legenda": "Uma permissão \"sempre permitir\" nunca passa do teto da ação (POLITICA.md do inema-agent-runtime)."
+      "legenda": "Uma permissêo \"sempre permitir\" nunca passa do teto da açêo (POLITICA.md do inema-agent-runtime)."
     },
     {
       "tipo": "passos",
-      "titulo": "O teto de cada ação",
+      "titulo": "O teto de cada açêo",
       "sub": "Da POLITICA.md do inema-agent-runtime (05/10/2026), resumida.",
       "passos": [
         {
@@ -99,17 +99,17 @@
         {
           "titulo": "Enviar e sistema: N2",
           "texto": [
-            "Comando que altera o sistema e enviar (e-mail, mensagem, post, push): executa depois de pedir, a cada vez. No Codex, sem auto-aprovação."
+            "Comando que altera o sistema e enviar (e-mail, mensagem, post, push): executa depois de pedir, a cada vez. No Codex, sem auto-aprovaçêo."
           ]
         },
         {
           "titulo": "Gastar e apagar: N1",
           "texto": [
-            "Gastar crédito e apagar dados ou produção: o agente só prepara, o humano executa (e com backup). No loop, isso vira a porta da aula 7."
+            "Gastar crédito e apagar dados ou produçêo: o agente só prepara, o humano executa (e com backup). No loop, isso vira a porta da aula 7."
           ],
           "exemplo": {
             "rot": "Mesma escala, outro nome",
-            "texto": "A constituição dos agentes (INEMA) usa 3 faz sozinho, 2 faz e avisa, 1 propõe, 0 não toca."
+            "texto": "A constituiçêo dos agentes (INEMA) usa 3 faz sozinho, 2 faz e avisa, 1 propõe, 0 nêo toca."
           }
         }
       ]
@@ -117,7 +117,7 @@
     {
       "tipo": "codigo",
       "titulo": "O settings.json da etapa executar",
-      "sub": "Regras no formato da doc atual: Bash(rm *) casa rm e rm com qualquer argumento. Caminhos de Edit e Read seguem padrão gitignore.",
+      "sub": "Regras no formato da doc atual: Bash(rm *) casa rm e rm com qualquer argumento. Caminhos de Edit e Read seguem padrêo gitignore.",
       "blocos": [
         {
           "rot": "Arquivo · kit/permissoes/executar.json",
@@ -127,7 +127,7 @@
         {
           "rot": "Modelo · uma linha por etapa (Claude Code e Codex)",
           "icone": "terminal",
-          "conteudo": "K=~/projetos/loop-r-eng-seguranca-v72/kit/permissoes\n# planejar: só lê\nclaude -p --settings $K/planejar.json --permission-mode dontAsk \"<pedido de plano>\"\ncodex exec -s read-only --skip-git-repo-check -C . - < plano.md\n# executar: edita no projeto, sem rede\nclaude -p --settings $K/executar.json --permission-mode dontAsk \"<pedido>\"\ncodex exec -s workspace-write --skip-git-repo-check -C . - < prompt.md\n# revisar: lê e roda os testes\nclaude -p --settings $K/revisar.json --permission-mode dontAsk \"<pedido de revisão>\"\ncodex exec -s read-only --skip-git-repo-check -C . - < revisar.md"
+          "conteudo": "K=~/projetos/loop-r-eng-seguranca-v72/kit/permissoes\n# planejar: só lê\nclaude -p --settings $K/planejar.json --permission-mode dontAsk \"<pedido de plano>\"\ncodex exec -s read-only --skip-git-repo-check -C . - < plano.md\n# executar: edita no projeto, sem rede\nclaude -p --settings $K/executar.json --permission-mode dontAsk \"<pedido>\"\ncodex exec -s workspace-write --skip-git-repo-check -C . - < prompt.md\n# revisar: lê e roda os testes\nclaude -p --settings $K/revisar.json --permission-mode dontAsk \"<pedido de revisêo>\"\ncodex exec -s read-only --skip-git-repo-check -C . - < revisar.md"
         }
       ]
     },
@@ -147,11 +147,11 @@
         "abas": [
           {
             "rot": "Saída capturada (19/10/2026)",
-            "html": "<pre>## deny só com Bash(rm -rf *)\ndeny      Bash(rm -rf *)         ← rm -rf build\n  saída: 1\nsem regra -                      ← rm -r -f build\n  saída: 4\nsem regra -                      ← git push -f origin main\n  saída: 4\n## executar.json\nallow     Bash(python3 -m pytest *) ← python3 -m pytest -q\n  saída: 0\ndeny      Bash(rm *)             ← rm -rf build\n  saída: 1\ndeny      Bash(rm *)             ← rm -r -f build\n  saída: 1\ndeny      Bash(curl *)           ← curl -s https://exemplo.invalid\n  saída: 1\nask       Bash(git commit *)     ← git commit -m x\n  saída: 3\nsem regra -                      ← ls\n  saída: 4</pre><p>Com só Bash(rm -rf *), o mesmo apagar escrito como rm -r -f não casa nenhuma regra. Bash(rm *) pega as duas formas, e o curl dentro de $( ) também é barrado. \"sem regra\" vira pergunta no terminal; no loop, com --permission-mode dontAsk, vira recusa (doc).</p>"
+            "html": "<pre>## deny só com Bash(rm -rf *)\ndeny      Bash(rm -rf *)         ← rm -rf build\n  saída: 1\nsem regra -                      ← rm -r -f build\n  saída: 4\nsem regra -                      ← git push -f origin main\n  saída: 4\n## executar.json\nallow     Bash(python3 -m pytest *) ← python3 -m pytest -q\n  saída: 0\ndeny      Bash(rm *)             ← rm -rf build\n  saída: 1\ndeny      Bash(rm *)             ← rm -r -f build\n  saída: 1\ndeny      Bash(curl *)           ← curl -s https://exemplo.invalid\n  saída: 1\nask       Bash(git commit *)     ← git commit -m x\n  saída: 3\nsem regra -                      ← ls\n  saída: 4</pre><p>Com só Bash(rm -rf *), o mesmo apagar escrito como rm -r -f nêo casa nenhuma regra. Bash(rm *) pega as duas formas, e o curl dentro de $( ) também é barrado. \"sem regra\" vira pergunta no terminal; no loop, com --permission-mode dontAsk, vira recusa (doc).</p>"
           },
           {
             "rot": "Erro comum: confiar no deny para tudo",
-            "html": "<p>Regra de Bash casa texto. find build -delete, um script que apaga por dentro ou python3 -c com shutil não começam com rm. Para essas, a aula 5 põe um hook, e a aula 6 um sandbox, que não lê texto nenhum.</p>"
+            "html": "<p>Regra de Bash casa texto. find build -delete, um script que apaga por dentro ou python3 -c com shutil nêo começam com rm. Para essas, a aula 5 põe um hook, e a aula 6 um sandbox, que nêo lê texto nenhum.</p>"
           }
         ]
       }
@@ -159,7 +159,7 @@
     {
       "tipo": "codigo",
       "titulo": "Real: o deny vale até no modo que libera tudo",
-      "sub": "Uma chamada ao Claude Code com --permission-mode bypassPermissions e o executar.json. O pedido é rodar rm -rf build. Confere-se o disco, não a resposta.",
+      "sub": "Uma chamada ao Claude Code com --permission-mode bypassPermissions e o executar.json. O pedido é rodar rm -rf build. Confere-se o disco, nêo a resposta.",
       "blocos": [
         {
           "rot": "Terminal · uma chamada real",
@@ -176,7 +176,7 @@
           },
           {
             "rot": "O que o modelo respondeu",
-            "html": "<pre>Falhou: `rm -rf build` não rodou, porque a permissão do Bash para esse comando foi negada. A pasta `build/` (com `app.bin`) continua lá. Não tentei de novo nem apaguei a pasta de outro jeito.</pre><p>Uma rodada, Claude Code 2.1.303. O \"Falhou:\" do começo vem de uma regra do CLAUDE.md global desta máquina (avisar fim de processamento), não do Claude Code. O que vale é a linha do disco: build/app.bin continua lá.</p>"
+            "html": "<pre>Falhou: `rm -rf build` nêo rodou, porque a permissêo do Bash para esse comando foi negada. A pasta `build/` (com `app.bin`) continua lá. Nêo tentei de novo nem apaguei a pasta de outro jeito.</pre><p>Uma rodada, Claude Code 2.1.303. O \"Falhou:\" do começo vem de uma regra do CLAUDE.md global desta máquina (avisar fim de processamento), nêo do Claude Code. O que vale é a linha do disco: build/app.bin continua lá.</p>"
           }
         ]
       }
@@ -195,17 +195,17 @@
         },
         {
           "id": "e10",
-          "titulo": "E10 · O deny numa sessão de verdade",
+          "titulo": "E10 · O deny numa sessêo de verdade",
           "min": "5 min",
           "texto": "Rode o bloco real (uma chamada, sai da sua cota).",
-          "pronto": "<code>build/app.bin continua lá: deny segurou</code> e <code>saída: 0</code>; <code>saída: 3</code> é resposta vazia (tente depois), não resultado."
+          "pronto": "<code>build/app.bin continua lá: deny segurou</code> e <code>saída: 0</code>; <code>saída: 3</code> é resposta vazia (tente depois), nêo resultado."
         },
         {
           "id": "e11",
-          "titulo": "E11 · O sandbox padrão do seu Codex",
+          "titulo": "E11 · O sandbox padrêo do seu Codex",
           "min": "5 min",
           "texto": "Veja se o seu config.toml desliga o sandbox para todas as chamadas. É comum ele ficar em danger-full-access depois de um contorno (por exemplo, quando o bubblewrap falhou) e nunca mais voltar; nesse caso, todo codex exec do loop precisa de -s explícito.",
-          "pronto": "<code>grep -n sandbox_mode ~/.codex/config.toml</code> não imprime nada ou imprime <code>read-only</code>/<code>workspace-write</code>; se imprimir <code>danger-full-access</code>, todo <code>codex exec</code> do seu loop leva <code>-s</code>."
+          "pronto": "<code>grep -n sandbox_mode ~/.codex/config.toml</code> nêo imprime nada ou imprime <code>read-only</code>/<code>workspace-write</code>; se imprimir <code>danger-full-access</code>, todo <code>codex exec</code> do seu loop leva <code>-s</code>."
         }
       ]
     },
@@ -216,26 +216,26 @@
         {
           "p": "Você tem deny Bash(git push *) e allow Bash(git push origin feature *). O que acontece com git push origin feature-x?",
           "opcoes": [
-            "É negado: deny vem antes e allow não abre exceção",
+            "É negado: deny vem antes e allow nêo abre exceçêo",
             "Depende do modo",
             "Passa, o allow é mais específico",
             "Pergunta"
           ],
           "certa": 0,
-          "explica": "A doc é explícita: a ordem é deny, ask, allow, e a especificidade não muda isso.",
+          "explica": "A doc é explícita: a ordem é deny, ask, allow, e a especificidade nêo muda isso.",
           "ref": "diagrama",
           "cert": true
         },
         {
-          "p": "Por que Bash(rm -rf *) não barra rm -r -f build?",
+          "p": "Por que Bash(rm -rf *) nêo barra rm -r -f build?",
           "opcoes": [
-            "Porque o * da regra não casa espaço nem as flags separadas",
+            "Porque o * da regra nêo casa espaço nem as flags separadas",
             "Porque falta sudo",
             "Porque o Claude Code ignora deny de rm",
             "Porque a regra casa texto, e o texto é outro"
           ],
           "certa": 3,
-          "explica": "Regra de Bash compara o texto do comando. Bash(rm *) casa as duas formas; o que não começa com rm (find -delete, scripts) fica para hook e sandbox.",
+          "explica": "Regra de Bash compara o texto do comando. Bash(rm *) casa as duas formas; o que nêo começa com rm (find -delete, scripts) fica para hook e sandbox.",
           "ref": "codigo",
           "cert": true
         },
@@ -248,19 +248,19 @@
             "danger-full-access"
           ],
           "certa": 2,
-          "explica": "workspace-write escreve só no workspace e, por padrão, sem rede. A doc do Codex reserva o bypass (--yolo) para runner já isolado.",
+          "explica": "workspace-write escreve só no workspace e, por padrêo, sem rede. A doc do Codex reserva o bypass (--yolo) para runner já isolado.",
           "ref": "codigo"
         },
         {
-          "p": "No loop com --permission-mode dontAsk, um comando que não casa nenhuma regra…",
+          "p": "No loop com --permission-mode dontAsk, um comando que nêo casa nenhuma regra…",
           "opcoes": [
             "roda",
-            "é recusado: dontAsk nega o que pediria confirmação",
+            "é recusado: dontAsk nega o que pediria confirmaçêo",
             "vira allow",
             "trava esperando"
           ],
           "certa": 1,
-          "explica": "Pela doc, dontAsk recusa toda chamada que pediria confirmação e deixa rodar o que o allow libera. Por isso o allow da etapa lista o que ela usa.",
+          "explica": "Pela doc, dontAsk recusa toda chamada que pediria confirmaçêo e deixa rodar o que o allow libera. Por isso o allow da etapa lista o que ela usa.",
           "ref": "codigo"
         }
       ]
@@ -271,15 +271,15 @@
       "itens": [
         {
           "t": "Cada etapa, a sua",
-          "texto": "Planejar e revisar não editam; executar edita só onde precisa."
+          "texto": "Planejar e revisar nêo editam; executar edita só onde precisa."
         },
         {
           "t": "deny ganha sempre",
-          "texto": "deny → ask → allow, e subcomando conta. Escreva Bash(rm *), não só rm -rf."
+          "texto": "deny → ask → allow, e subcomando conta. Escreva Bash(rm *), nêo só rm -rf."
         },
         {
           "t": "-s explícito",
-          "texto": "No Codex, o sandbox vai na linha do loop, não na esperança do config."
+          "texto": "No Codex, o sandbox vai na linha do loop, nêo na esperança do config."
         }
       ]
     },
@@ -303,7 +303,7 @@
           "icone": "escudo"
         },
         {
-          "t": "Constituição dos Agentes (INEMA): níveis de autonomia",
+          "t": "Constituiçêo dos Agentes (INEMA): níveis de autonomia",
           "href": "https://inematds.github.io/constituicao-agentes/guia/",
           "icone": "arquivo"
         }

@@ -5,7 +5,7 @@
   "titulo": "Sandbox de rede e de arquivos",
   "titulo_curto": "Sandbox provado",
   "minutos": 20,
-  "lead": "Regra e hook leem o comando; o sandbox não lê nada: o sistema operacional simplesmente não deixa o processo escrever fora da pasta nem abrir a rede. Mas sandbox também falha em silêncio. Nesta aula você prova, com quatro tentativas de fuga, o que segura na sua máquina, e vê duas travas que não seguraram nesta.",
+  "lead": "Regra e hook leem o comando; o sandbox nêo lê nada: o sistema operacional simplesmente nêo deixa o processo escrever fora da pasta nem abrir a rede. Mas sandbox também falha em silêncio. Nesta aula você prova, com quatro tentativas de fuga, o que segura na sua máquina, e vê duas travas que nêo seguraram nesta.",
   "objetivo": "provar na sua máquina que o sandbox bloqueia escrita fora da pasta e rede, em vez de confiar na flag.",
   "competencias": [
     "provar-isolamento-por-tentativa-de-fuga",
@@ -23,11 +23,11 @@
     },
     {
       "icone": "x",
-      "t": "Duas travas que não seguraram aqui: systemd --user e Claude sem socat"
+      "t": "Duas travas que nêo seguraram aqui: systemd --user e Claude sem socat"
     },
     {
       "icone": "cadeado",
-      "t": "O que o sandbox não cobre: ler fora da pasta"
+      "t": "O que o sandbox nêo cobre: ler fora da pasta"
     }
   ],
   "hero_alt": "Caixa de luvas de laboratório em acrílico e aço com uma placa de circuito dentro, sobre bancada escura.",
@@ -60,11 +60,11 @@
           "titulo": "Lê segredo",
           "sub": "só aviso",
           "forte": true,
-          "detalhe": "Ler um segredo falso em ~/.config. Os sandboxes testados deixam ler fora da pasta. Com a rede cortada, ler não vaza; mesmo assim, tire segredo do alcance."
+          "detalhe": "Ler um segredo falso em ~/.config. Os sandboxes testados deixam ler fora da pasta. Com a rede cortada, ler nêo vaza; mesmo assim, tire segredo do alcance."
         }
       ],
       "volta": "ISOLAMENTO: OK só com escreve-fora e rede BLOQUEADOS",
-      "legenda": "Relato de fonte secundária: a <a href=\"https://helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures\">Help Net Security</a> registra sandbox e allowlist falhando em 2026 no Cursor e no Codex CLI. A conclusão prática é provar a trava, não pedir mais confirmação."
+      "legenda": "Relato de fonte secundária: a <a href=\"https://helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures\">Help Net Security</a> registra sandbox e allowlist falhando em 2026 no Cursor e no Codex CLI. A conclusêo prática é provar a trava, nêo pedir mais confirmaçêo."
     },
     {
       "tipo": "codigo",
@@ -82,7 +82,7 @@
         "abas": [
           {
             "rot": "Saída capturada (19/10/2026)",
-            "html": "<pre>## sem trava\n  escreve-dentro ABERTO\n  escreve-fora ABERTO\n  rede ABERTO\n  le-segredo ABERTO\n  aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede\nISOLAMENTO: FURADO (2 fuga(s))\nsaída: 1\n## codex sandbox :read-only\n  escreve-dentro BLOQUEADO\n  escreve-fora BLOQUEADO\n  rede BLOQUEADO\n  le-segredo ABERTO\n  aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede\n  aviso: nem a pasta de trabalho é gravável (bom para revisar, não para executar)\nISOLAMENTO: OK\nsaída: 0\n## codex sandbox :workspace\n  escreve-dentro ABERTO\n  escreve-fora BLOQUEADO\n  rede BLOQUEADO\n  le-segredo ABERTO\n  aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede\nISOLAMENTO: OK\nsaída: 0\n## systemd-run PrivateNetwork + ProtectHome\n  escreve-dentro ABERTO\n  escreve-fora ABERTO\n  rede ABERTO\n  le-segredo ABERTO\n  aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede\nISOLAMENTO: FURADO (2 fuga(s))\nsaída: 1</pre><p>codex-cli 0.163.0, systemd 255. O systemd aceitou as flags e rodou sem elas; o journal registrou \"PrivateNetwork=yes is configured, but the kernel does not support or we lack privileges for network namespace, proceeding without\".</p>"
+            "html": "<pre>## sem trava\n  escreve-dentro ABERTO\n  escreve-fora ABERTO\n  rede ABERTO\n  le-segredo ABERTO\n  aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede\nISOLAMENTO: FURADO (2 fuga(s))\nsaída: 1\n## codex sandbox :read-only\n  escreve-dentro BLOQUEADO\n  escreve-fora BLOQUEADO\n  rede BLOQUEADO\n  le-segredo ABERTO\n  aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede\n  aviso: nem a pasta de trabalho é gravável (bom para revisar, nêo para executar)\nISOLAMENTO: OK\nsaída: 0\n## codex sandbox :workspace\n  escreve-dentro ABERTO\n  escreve-fora BLOQUEADO\n  rede BLOQUEADO\n  le-segredo ABERTO\n  aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede\nISOLAMENTO: OK\nsaída: 0\n## systemd-run PrivateNetwork + ProtectHome\n  escreve-dentro ABERTO\n  escreve-fora ABERTO\n  rede ABERTO\n  le-segredo ABERTO\n  aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede\nISOLAMENTO: FURADO (2 fuga(s))\nsaída: 1</pre><p>codex-cli 0.163.0, systemd 255. O systemd aceitou as flags e rodou sem elas; o journal registrou \"PrivateNetwork=yes is configured, but the kernel does not support or we lack privileges for network namespace, proceeding without\".</p>"
           },
           {
             "rot": "Por que o systemd falhou aqui",
@@ -99,7 +99,7 @@
         {
           "titulo": "Codex",
           "texto": [
-            "codex exec -s read-only ou -s workspace-write roda os comandos do modelo num sandbox (no Linux, bubblewrap com filtro seccomp, diz a doc do codex sandbox). A doc recomenda workspace-write para trabalho local sem supervisão e reserva o --yolo para runner já isolado.",
+            "codex exec -s read-only ou -s workspace-write roda os comandos do modelo num sandbox (no Linux, bubblewrap com filtro seccomp, diz a doc do codex sandbox). A doc recomenda workspace-write para trabalho local sem supervisêo e reserva o --yolo para runner já isolado.",
             "codex sandbox -P [perfil] -- [comando] roda um comando seu no sandbox, sem modelo: é o que o ensaio usa. Os perfis :read-only e :workspace foram observados no 0.163.0."
           ]
         },
@@ -113,8 +113,8 @@
         {
           "titulo": "Falhar alto",
           "texto": [
-            "Por padrão, se o sandbox do Claude Code não consegue subir, ele roda os comandos sem sandbox. Com sandbox.failIfUnavailable: true, recusa iniciar.",
-            "No loop, ligue o failIfUnavailable: trava ausente tem de parar o loop, não deixá-lo rodar aberto."
+            "Por padrêo, se o sandbox do Claude Code nêo consegue subir, ele roda os comandos sem sandbox. Com sandbox.failIfUnavailable: true, recusa iniciar.",
+            "No loop, ligue o failIfUnavailable: trava ausente tem de parar o loop, nêo deixá-lo rodar aberto."
           ],
           "exemplo": {
             "rot": "Doc do Claude Code",
@@ -126,7 +126,7 @@
     {
       "tipo": "codigo",
       "titulo": "Claude Code: sandbox com falha explícita",
-      "sub": "Nesta máquina falta o socat. Com failIfUnavailable, o Claude Code recusa iniciar antes de qualquer chamada ao modelo (não gasta cota).",
+      "sub": "Nesta máquina falta o socat. Com failIfUnavailable, o Claude Code recusa iniciar antes de qualquer chamada ao modelo (nêo gasta cota).",
       "blocos": [
         {
           "rot": "Terminal · pedir sandbox e exigir que exista",
@@ -139,11 +139,11 @@
         "abas": [
           {
             "rot": "Saída capturada (19/10/2026)",
-            "html": "<pre>Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing\n  sandbox.failIfUnavailable is set — refusing to start without a working sandbox.\n\nsaída: 1</pre><p>Claude Code 2.1.303. Sem o failIfUnavailable, pela doc, a mesma sessão teria rodado os comandos sem sandbox.</p>"
+            "html": "<pre>Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing\n  sandbox.failIfUnavailable is set — refusing to start without a working sandbox.\n\nsaída: 1</pre><p>Claude Code 2.1.303. Sem o failIfUnavailable, pela doc, a mesma sessêo teria rodado os comandos sem sandbox.</p>"
           },
           {
             "rot": "Com as dependências",
-            "html": "<p>Instale bubblewrap e socat (o próprio erro sugere <code>apt install bubblewrap socat</code>) e rode de novo: a sessão sobe e responde. Depois, peça ao Claude para rodar as sondas do prova-isolamento.sh, uma de cada vez, e confira BLOQUEADO em escreve-fora e rede.</p>"
+            "html": "<p>Instale bubblewrap e socat (o próprio erro sugere <code>apt install bubblewrap socat</code>) e rode de novo: a sessêo sobe e responde. Depois, peça ao Claude para rodar as sondas do prova-isolamento.sh, uma de cada vez, e confira BLOQUEADO em escreve-fora e rede.</p>"
           }
         ]
       }
@@ -189,12 +189,12 @@
             "Sim, a flag foi aceita"
           ],
           "certa": 2,
-          "explica": "O systemd do usuário seguiu sem o namespace e só registrou no journal. Flag aceita não é trava de pé: a tentativa de fuga é que decide.",
+          "explica": "O systemd do usuário seguiu sem o namespace e só registrou no journal. Flag aceita nêo é trava de pé: a tentativa de fuga é que decide.",
           "ref": "codigo",
           "cert": true
         },
         {
-          "p": "O que o Claude Code faz, por padrão, se o sandbox não consegue subir?",
+          "p": "O que o Claude Code faz, por padrêo, se o sandbox nêo consegue subir?",
           "opcoes": [
             "Recusa iniciar",
             "Roda só leitura",
@@ -202,7 +202,7 @@
             "Pede a senha"
           ],
           "certa": 2,
-          "explica": "Por padrão segue sem sandbox. sandbox.failIfUnavailable: true faz recusar iniciar, que é o que um loop sem supervisão precisa.",
+          "explica": "Por padrêo segue sem sandbox. sandbox.failIfUnavailable: true faz recusar iniciar, que é o que um loop sem supervisêo precisa.",
           "ref": "passos",
           "cert": true
         },
@@ -210,12 +210,12 @@
           "p": "No perfil :workspace, o agente consegue ler um segredo em ~/.config. O que fazer?",
           "opcoes": [
             "Trocar para danger-full-access e confiar no deny de leitura do settings",
-            "Nada, ler não faz mal",
+            "Nada, ler nêo faz mal",
             "Desligar o sandbox",
-            "Cortar a rede e tirar segredos do alcance da sessão"
+            "Cortar a rede e tirar segredos do alcance da sessêo"
           ],
           "certa": 3,
-          "explica": "Ler não vaza se não houver saída. Com a rede cortada pelo mesmo sandbox e o segredo fora do alcance, a tríade não fecha.",
+          "explica": "Ler nêo vaza se nêo houver saída. Com a rede cortada pelo mesmo sandbox e o segredo fora do alcance, a tríade nêo fecha.",
           "ref": "diagrama"
         },
         {
@@ -227,7 +227,7 @@
             "Nenhuma"
           ],
           "certa": 0,
-          "explica": "find -delete, python3 -c ou um script que apaga passam por regra de texto; não passam por um sistema de arquivos só leitura.",
+          "explica": "find -delete, python3 -c ou um script que apaga passam por regra de texto; nêo passam por um sistema de arquivos só leitura.",
           "ref": "passos"
         }
       ]
@@ -237,7 +237,7 @@
       "titulo": "Em três frases",
       "itens": [
         {
-          "t": "Prove, não confie",
+          "t": "Prove, nêo confie",
           "texto": "Quatro tentativas de fuga dizem se a trava está de pé na sua máquina."
         },
         {

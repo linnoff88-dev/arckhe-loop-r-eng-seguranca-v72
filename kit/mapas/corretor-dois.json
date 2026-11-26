@@ -23,7 +23,7 @@
       "ferramentas": [
         { "nome": "ler o diff", "privado": true },
         { "nome": "git push e abrir PR", "saida": true, "muda_estado": true },
-        { "nome": "ler comentários de revisão no PR", "terceiros": true }
+        { "nome": "ler comentários de revisêo no PR", "terceiros": true }
       ]
     }
   ]

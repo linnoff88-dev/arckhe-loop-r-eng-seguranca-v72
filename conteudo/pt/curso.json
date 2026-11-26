@@ -3,7 +3,7 @@
   "lang": "pt-BR",
   "url": "https://inematds.github.io/loop-r-eng-seguranca-v72/",
   "nome": "Segurança do Loop Autônomo",
-  "sub": "Formação LOOP-R Engenharia · curso 4",
+  "sub": "Formaçêo LOOP-R Engenharia · curso 4",
   "volta": {
     "t": "Área LOOP-R Engenharia",
     "href": "https://eventos.inema.pro/loop-r-engenharia/"
@@ -11,19 +11,19 @@
   "lado_card": {
     "rot": "O kit deste curso",
     "t": "kit/ no repositório do curso",
-    "texto": "Mapa da tríade, agente falso e canário, regras de permissão, guarda por hook, prova de isolamento, porta do irreversível e auditoria. Ensaios sem custo, testados em 19/10/2026.",
+    "texto": "Mapa da tríade, agente falso e canário, regras de permissêo, guarda por hook, prova de isolamento, porta do irreversível e auditoria. Ensaios sem custo, testados em 19/10/2026.",
     "link": "Abrir a pasta kit/ no GitHub",
     "href": "https://github.com/inematds/loop-r-eng-seguranca-v72/tree/main/kit"
   },
-  "rodape": "INEMA.CLUB · conteúdo aberto e gratuito · formato INEMA Learning v7.2 · Formação LOOP-R Engenharia, curso 4 de 6 · <a href=\"https://eventos.inema.pro/loop-r-engenharia/\">eventos.inema.pro/loop-r-engenharia</a> · <a href=\"https://github.com/inematds/loop-r-eng-seguranca-v72/tree/main/kit\">kit do curso no GitHub</a> · <a href=\"https://inema.club/\">inema.club</a>",
+  "rodape": "INEMA.CLUB · conteúdo aberto e gratuito · formato INEMA Learning v7.2 · Formaçêo LOOP-R Engenharia, curso 4 de 6 · <a href=\"https://eventos.inema.pro/loop-r-engenharia/\">eventos.inema.pro/loop-r-engenharia</a> · <a href=\"https://github.com/inematds/loop-r-eng-seguranca-v72/tree/main/kit\">kit do curso no GitHub</a> · <a href=\"https://inema.club/\">inema.club</a>",
   "videos": {},
   "inicio": {
-    "kicker": "Formação LOOP-R Engenharia · curso 4 de 6 · 8 aulas",
-    "titulo": "Segurança do Loop Autônomo: o agente que roda sozinho não pode ter tudo ao mesmo tempo",
-    "lead": "Tríade letal, Regra de Dois, injeção pelo conteúdo lido, permissões por etapa, hooks de guarda, sandbox provado, porta para o irreversível e uma auditoria do seu loop. Defesa para quem roda os próprios agentes, com ensaios locais que não gastam cota.",
+    "kicker": "Formaçêo LOOP-R Engenharia · curso 4 de 6 · 8 aulas",
+    "titulo": "Segurança do Loop Autônomo: o agente que roda sozinho nêo pode ter tudo ao mesmo tempo",
+    "lead": "Tríade letal, Regra de Dois, injeçêo pelo conteúdo lido, permissões por etapa, hooks de guarda, sandbox provado, porta para o irreversível e uma auditoria do seu loop. Defesa para quem roda os próprios agentes, com ensaios locais que nêo gastam cota.",
     "cta": "Começar pela aula 1",
     "cta2": {
-      "t": "Ver a área da formação",
+      "t": "Ver a área da formaçêo",
       "href": "https://eventos.inema.pro/loop-r-engenharia/"
     },
     "capa_alt": "Sala de servidores escura com um rack atrás de porta de vidro trancada por um cadeado pequeno.",
@@ -34,20 +34,20 @@
       { "v": "3", "t": "passos reais, uma chamada cada" }
     ],
     "aulas_titulo": "As aulas",
-    "aulas_sub": "Na ordem em que você fecha as portas: mapear o risco, limitar o que cada sessão junta, ver a injeção, permissões, hooks, sandbox, o irreversível e a auditoria.",
+    "aulas_sub": "Na ordem em que você fecha as portas: mapear o risco, limitar o que cada sessêo junta, ver a injeçêo, permissões, hooks, sandbox, o irreversível e a auditoria.",
     "blocos": [
       {
         "t": "Para quem é",
         "itens": [
           "Quem roda Claude Code ou Codex sozinhos por horas, em loop, cron ou systemd, nos próprios projetos.",
           "Quem deu ao agente leitura de issues, páginas ou e-mails e acesso ao repositório ao mesmo tempo.",
-          "Quem quer saber, com prova, o que o agente consegue e não consegue fazer na própria máquina."
+          "Quem quer saber, com prova, o que o agente consegue e nêo consegue fazer na própria máquina."
         ]
       },
       {
         "t": "O que você sai fazendo",
         "itens": [
-          "Mapear cada sessão do loop nas três pernas da tríade e na Regra de Dois, e cortar onde fecha.",
+          "Mapear cada sessêo do loop nas três pernas da tríade e na Regra de Dois, e cortar onde fecha.",
           "Separar quem lê conteúdo de fora de quem tem o segredo, e pegar vazamento com um canário.",
           "Escrever deny por etapa, ligar hooks que negam o irreversível e provar que o sandbox segura.",
           "Pôr envio, push e apagar atrás de uma porta humana e auditar o loop com checklist datado."
@@ -56,9 +56,9 @@
       {
         "t": "Antes de começar",
         "itens": [
-          "Linux com git, Python 3 e Node. macOS serve para quase tudo; as provas de sandbox e systemd são de Linux.",
+          "Linux com git, Python 3 e Node. macOS serve para quase tudo; as provas de sandbox e systemd sêo de Linux.",
           "Claude Code e Codex entrando pela sua assinatura, só para os passos marcados \"real\".",
-          "Recomendado: o curso 0 (Base). O curso 2 (Execução Longa) roda o loop que este curso protege."
+          "Recomendado: o curso 0 (Base). O curso 2 (Execuçêo Longa) roda o loop que este curso protege."
         ]
       }
     ]
@@ -77,7 +77,7 @@
     "dg_dica": "Clique em cada bloco do diagrama para ver o que ele faz.",
     "copiar": "Copiar",
     "copiado": "Copiado",
-    "selo_simulacao": "Simulação: exemplo ilustrativo",
+    "selo_simulacao": "Simulaçêo: exemplo ilustrativo",
     "selo_real": "Exemplo do repositório",
     "pronto_quando": "Pronto quando:",
     "fiz": "Fiz este exercício",
@@ -86,8 +86,8 @@
     "de": "de",
     "cert_tag": "competência",
     "correto": "Correto",
-    "errado": "Não é essa",
-    "quiz_aguarda": "Escolha uma alternativa. A explicação aparece depois da sua tentativa.",
+    "errado": "Nêo é essa",
+    "quiz_aguarda": "Escolha uma alternativa. A explicaçêo aparece depois da sua tentativa.",
     "proxima_pergunta": "Próxima pergunta",
     "quiz_ver": "Ver resultado",
     "quiz_fim": "Teste concluído",
@@ -114,7 +114,7 @@
     "baixar_ics": "Baixar para o calendário (.ics)",
     "ind_estudo": "Estudo (aulas)",
     "ind_pratica": "Prática declarada",
-    "ind_nota": "Prática = exercícios que você marcou como feitos. A comprovação vem na prova da certificação.",
+    "ind_nota": "Prática = exercícios que você marcou como feitos. A comprovaçêo vem na prova da certificaçêo.",
     "estudo": {
       "titulo": "Seu estudo",
       "continuar": "Continuar de onde parei",
@@ -127,7 +127,7 @@
       "notas": "Minhas anotações",
       "dados": "Copiar meus dados",
       "sem_testes": "Nenhum teste feito ainda. O teste fica no fim de cada aula.",
-      "nao_fez": "teste ainda não feito",
+      "nao_fez": "teste ainda nêo feito",
       "ultimo": "Último",
       "melhor": "Melhor",
       "tentativas": "tentativas",
@@ -136,21 +136,21 @@
       "rever": "Para rever",
       "resposta": "Resposta certa:",
       "ir_teste": "Refazer o teste",
-      "sem_notas": "Nenhuma anotação ainda. Na aula, selecione um trecho do texto e toque em Marcar ou Anotar.",
+      "sem_notas": "Nenhuma anotaçêo ainda. Na aula, selecione um trecho do texto e toque em Marcar ou Anotar.",
       "so_marcado": "(só marcado)",
       "marcar": "Marcar",
       "anotar": "Anotar",
       "salvar": "Salvar",
       "apagar": "Apagar marca",
       "fechar": "Fechar",
-      "nota_ph": "Escreva sua anotação sobre este trecho…",
+      "nota_ph": "Escreva sua anotaçêo sobre este trecho…",
       "um_bloco": "Marque dentro de um parágrafo só.",
-      "nao_marca": "Este trecho não pode ser marcado.",
-      "dados_exp": "Seu progresso, suas anotações e as notas dos testes ficam só neste navegador. Baixe uma cópia (.json) para guardar ou para continuar em outro computador ou navegador; lá, carregue a cópia. Carregar soma com o que já existe e não apaga nada.",
+      "nao_marca": "Este trecho nêo pode ser marcado.",
+      "dados_exp": "Seu progresso, suas anotações e as notas dos testes ficam só neste navegador. Baixe uma cópia (.json) para guardar ou para continuar em outro computador ou navegador; lá, carregue a cópia. Carregar soma com o que já existe e nêo apaga nada.",
       "exportar": "Baixar cópia",
       "importar": "Carregar cópia",
       "import_ok": "Cópia carregada ({n} itens). Atualizando a página…",
-      "import_erro": "Arquivo não reconhecido. Nada foi alterado.",
+      "import_erro": "Arquivo nêo reconhecido. Nada foi alterado.",
       "import_outro": "Esta cópia é de outro curso. Nada foi alterado.",
       "export_ok": "Cópia baixada."
     },
@@ -162,7 +162,7 @@
     "conv_ruim": "Escolha fraca",
     "conv_fim": "Fim da conversa",
     "conv_placar": "Você fez {p} de {m} pontos possíveis.",
-    "conv_licao": "Lição:",
+    "conv_licao": "Liçêo:",
     "conv_recomecar": "Recomeçar a conversa",
     "conv_feita": "Seu melhor placar: {p} de {m} pontos."
   },

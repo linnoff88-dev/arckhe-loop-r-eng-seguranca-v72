@@ -12,7 +12,7 @@ saída: 1
   rede BLOQUEADO
   le-segredo ABERTO
   aviso: lê arquivos fora da pasta; tire segredos do alcance ou corte a rede
-  aviso: nem a pasta de trabalho é gravável (bom para revisar, não para executar)
+  aviso: nem a pasta de trabalho é gravável (bom para revisar, nêo para executar)
 ISOLAMENTO: OK
 saída: 0
 ## codex sandbox :workspace

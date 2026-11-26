@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""agente-falso.py: imita o PIOR caso de um agente que lê conteúdo não confiável.
+"""agente-falso.py: imita o PIOR caso de um agente que lê conteúdo nêo confiável.
 
-Não é um modelo. É um script que obedece a qualquer frase "Instrução para o agente: ..." que achar no
+Nêo é um modelo. É um script que obedece a qualquer frase "Instruçêo para o agente: ..." que achar no
 texto, como um modelo enganado faria. Serve para ensaiar as defesas sem gastar cota e sem atacar ninguém:
 o "canal de saída" é só um arquivo local (saida/enviados.log) e a "resposta" é resposta.md.
 
   python3 agente-falso.py ingenuo   PASTA   # lê segredo + página inteira, tem a ferramenta enviar
-  python3 agente-falso.py sem-saida PASTA   # igual, mas a sessão não tem a ferramenta enviar
+  python3 agente-falso.py sem-saida PASTA   # igual, mas a sessêo nêo tem a ferramenta enviar
   python3 agente-falso.py separado  PASTA   # um leitor por código extrai só campos; o agente vê só os campos
 
 PASTA vem do ensaio-injecao.sh: segredo.txt, pagina.html, saida/.
@@ -17,7 +17,7 @@ import re
 import sys
 from pathlib import Path
 
-INSTR = re.compile(r"Instrução para o agente:\s*(.+?)(?:</|$)", re.S)
+INSTR = re.compile(r"Instruçêo para o agente:\s*(.+?)(?:</|$)", re.S)
 
 
 def texto_visivel_e_oculto(pagina):
@@ -28,14 +28,14 @@ def texto_visivel_e_oculto(pagina):
 def obedecer(contexto, segredo, ferramentas, pasta, resposta):
     for ordem in INSTR.findall(contexto):
         ordem = ordem.strip()
-        print(f"achou instrução no conteúdo: \"{ordem[:60]}…\"")
+        print(f"achou instruçêo no conteúdo: \"{ordem[:60]}…\"")
         if "envie" in ordem:
             if "enviar" in ferramentas:
                 with open(pasta / "saida" / "enviados.log", "a", encoding="utf-8") as f:
                     f.write(segredo + "\n")
                 print("  → chamou enviar(segredo) para o canal de saída")
             else:
-                print("  → tentou enviar: ferramenta enviar não existe nesta sessão")
+                print("  → tentou enviar: ferramenta enviar nêo existe nesta sessêo")
         if "imagem" in ordem:
             url = re.search(r"!\[\]\((\S+?)\)", ordem)
             if url:
@@ -51,7 +51,7 @@ def main():
     pagina = (pasta / "pagina.html").read_text(encoding="utf-8")
     resposta = []
     if modo == "separado":
-        # leitor determinístico (sem modelo): só título e preço, por expressão regular
+        # leitor determinístico (sem modelo): só título e preço, por expressêo regular
         titulo = re.search(r"<h1>(.*?)</h1>", pagina, re.S)
         preco = re.search(r'class="preco">Preço:\s*([^<]+)<', pagina)
         campos = {"titulo": titulo.group(1).strip() if titulo else None,

@@ -8,13 +8,13 @@ Lê do stdin o JSON que o Claude Code manda antes de cada ferramenta (tool_name,
           E nega ESCRITA via Bash nos protegidos: > e >>, tee, sed -i, cp/install/ln (destino),
           mv/rm/truncate/shred/unlink (qualquer argumento).
   Edit / Write / MultiEdit / NotebookEdit → nega se o arquivo está em GUARDA_PROTEGIDOS
-          (padrão: goal.md tests/ .claude/ e a própria pasta do hook).
-Responde {"hookSpecificOutput": {"permissionDecision": "deny", ...}} ou não imprime nada.
+          (padrêo: goal.md tests/ .claude/ e a própria pasta do hook).
+Responde {"hookSpecificOutput": {"permissionDecision": "deny", ...}} ou nêo imprime nada.
 
-O que ela NÃO pega (é regex e leitura de comando, não sandbox): um programa que grava por conta própria
+O que ela NêO pega (é regex e leitura de comando, nêo sandbox): um programa que grava por conta própria
 (python3 -c "open('goal.md','w')", node -e, perl -e, um script seu), caminho montado em variável,
 eval, base64 | sh. Para isso servem o deny Edit(...)/Write(...) da aula 4 e o sandbox da aula 6.
-Para o "apagar com confirmação" (ask com a contagem do que some), use o raio.mjs do inema-agent-runtime.
+Para o "apagar com confirmaçêo" (ask com a contagem do que some), use o raio.mjs do inema-agent-runtime.
 Testar sem Claude: printf '{"tool_name":"Bash","tool_input":{"command":"git reset --hard"}}' | python3 guarda.py
 """
 import json
@@ -26,13 +26,13 @@ import sys
 INICIO = r"(?:^|[;&|(`'\"]\s*|\bsudo\s+|\bxargs\s+)"   # começo de comando (também dentro de bash -c '…')
 NEGAR_BASH = [
     (r"\bgit\s+push\b.*(\s--force\b|\s-f\b|\s--force-with-lease\b)", "push forçado reescreve o remoto"),
-    (r"\bgit\s+reset\s+.*--hard\b", "reset --hard descarta trabalho não commitado"),
-    (r"\bgit\s+clean\s+-\w*f", "git clean -f apaga arquivos não rastreados"),
-    (r"\bgit\s+checkout\s+--\s+\.", "checkout -- . descarta mudanças não commitadas"),
+    (r"\bgit\s+reset\s+.*--hard\b", "reset --hard descarta trabalho nêo commitado"),
+    (r"\bgit\s+clean\s+-\w*f", "git clean -f apaga arquivos nêo rastreados"),
+    (r"\bgit\s+checkout\s+--\s+\.", "checkout -- . descarta mudanças nêo commitadas"),
     (r"\bfind\b.*\s-delete\b", "find -delete apaga sem lista prévia"),
     (r"\brm\s+(-\w*\s+)*-\w*[rR]\w*\s+(-\w+\s+)*['\"]?(/|~|\$HOME|\$\{HOME\}|\.\.)(?=$|[\s'\"`;&|)]|/(?:\*|$|[\s'\"`;&|)]))",
      "rm recursivo na raiz, no HOME ou acima da pasta"),
-    (INICIO + r"(pkill|killall)\b", "matar por nome pode derrubar processo que não é seu"),
+    (INICIO + r"(pkill|killall)\b", "matar por nome pode derrubar processo que nêo é seu"),
     (r"\bdd\b.*\bof=", "dd escreve direto no destino"),
     (r"\bmkfs(\.\w+)?\b", "mkfs formata um disco"),
 ]
@@ -86,7 +86,7 @@ def segmentos(cmd):
 def escreve_protegido(cmd, cwd):
     for seg in segmentos(cmd):
         if git_restore(seg):
-            return "git restore descarta mudanças não commitadas"
+            return "git restore descarta mudanças nêo commitadas"
         alvos = [seg[i + 1] for i, t in enumerate(seg[:-1]) if re.fullmatch(r"\d?(>|>>|>\||&>|&>>)", t)]
         palavras = [t for t in seg if not re.fullmatch(r"\d?[<>&|]+\d?", t)]
         while palavras and (palavras[0] == "sudo" or re.fullmatch(r"\w+=\S*", palavras[0])):
@@ -109,7 +109,7 @@ def negar(motivo):
     print(json.dumps({"hookSpecificOutput": {
         "hookEventName": "PreToolUse",
         "permissionDecision": "deny",
-        "permissionDecisionReason": f"Guarda: {motivo}. Peça ao humano; não tente outro caminho para o mesmo efeito.",
+        "permissionDecisionReason": f"Guarda: {motivo}. Peça ao humano; nêo tente outro caminho para o mesmo efeito.",
     }}, ensure_ascii=False))
     return 0
 

@@ -140,7 +140,7 @@
         "abas": [
           {
             "rot": "Salida capturada (19/10/2026)",
-            "html": "<pre>## guarda.py (nega o irreversível)\ngit push --force origin main       → deny\ngit reset --hard HEAD~3            → deny\nfind . -name '*.o' -delete         → deny\nrm -rf ~                           → deny\npkill -f servidor                  → deny\npython3 -m pytest -q               → -\nEdit tests/test_x.py               → deny\nEdit src/app.py                    → -\n## guarda.py: escrita via Bash nos protegidos\nsed -i s/x/y/ tests/test_x.py      → deny\necho pronto &gt; goal.md              → deny\necho {..} &gt; .claude/settings.local → deny\nmv goal.md /tmp/                   → deny\nbash -c 'rm -rf ~'                 → deny\ngit restore .                      → deny\npytest -q tests/ &gt; log.txt         → -\ngit restore --staged app.py        → -\n## o que a guarda NÃO pega (para isso: deny Edit/Write da aula 4 e sandbox da aula 6)\npython3 -c open('goal.md','w')     → -\n## raio.mjs (apagar pede confirmação, com a contagem)\nrm -r build                        → ask\nrm -r nada                         → -\n## colisao.mjs (outra sessão editou há pouco)\nsessão B edita o mesmo arquivo    → ask\nsessão A edita de novo            → -</pre><p>\"-\" es sin decisión: el flujo normal (reglas y modo) decide. pytest con salida en log.txt y git restore --staged pasan, porque no tocan los protegidos. La línea del python3 -c es el hueco declarado: la guardia no ve lo que escribe un programa. El rm de una carpeta que no existe no pide nada, porque no hay nada que borrar.</p>"
+            "html": "<pre>## guarda.py (nega o irreversível)\ngit push --force origin main       → deny\ngit reset --hard HEAD~3            → deny\nfind . -name '*.o' -delete         → deny\nrm -rf ~                           → deny\npkill -f servidor                  → deny\npython3 -m pytest -q               → -\nEdit tests/test_x.py               → deny\nEdit src/app.py                    → -\n## guarda.py: escrita via Bash nos protegidos\nsed -i s/x/y/ tests/test_x.py      → deny\necho pronto &gt; goal.md              → deny\necho {..} &gt; .claude/settings.local → deny\nmv goal.md /tmp/                   → deny\nbash -c 'rm -rf ~'                 → deny\ngit restore .                      → deny\npytest -q tests/ &gt; log.txt         → -\ngit restore --staged app.py        → -\n## o que a guarda NêO pega (para isso: deny Edit/Write da aula 4 e sandbox da aula 6)\npython3 -c open('goal.md','w')     → -\n## raio.mjs (apagar pede confirmaçêo, com a contagem)\nrm -r build                        → ask\nrm -r nada                         → -\n## colisao.mjs (outra sessêo editou há pouco)\nsessêo B edita o mesmo arquivo    → ask\nsessêo A edita de novo            → -</pre><p>\"-\" es sin decisión: el flujo normal (reglas y modo) decide. pytest con salida en log.txt y git restore --staged pasan, porque no tocan los protegidos. La línea del python3 -c es el hueco declarado: la guardia no ve lo que escribe un programa. El rm de una carpeta que no existe no pide nada, porque no hay nada que borrar.</p>"
           },
           {
             "rot": "Error común: hook que solo avisa",
@@ -165,11 +165,11 @@
         "abas": [
           {
             "rot": "Salida capturada (19/10/2026)",
-            "html": "<pre>app.txt: mudança não commitada preservada\nbuild/a.o: continua lá\nsaída: 0</pre>"
+            "html": "<pre>app.txt: mudança nêo commitada preservada\nbuild/a.o: continua lá\nsaída: 0</pre>"
           },
           {
             "rot": "Lo que respondió el modelo",
-            "html": "<pre>- `git reset --hard`: não rodou. Um hook de segurança bloqueou o comando porque ele descartaria trabalho não commitado (o `app.txt` modificado). O hook pede que você autorize, então não tentei outro caminho.\n- `rm -r build`: não rodou. Um hook pediu confirmação antes de apagar `build/a.o` (1 arquivo, 1 KB) e perguntou se existe backup. Nada foi apagado.\n(…)</pre><p>Corte (…): la última línea, un aviso pedido por el CLAUDE.md global de esta máquina. Una ronda, Claude Code 2.1.303: el deny de la guardia y el ask de raio.mjs, sin terminal para confirmar, dejaron los dos comandos sin ejecutarse.</p>"
+            "html": "<pre>- `git reset --hard`: nêo rodou. Um hook de segurança bloqueou o comando porque ele descartaria trabalho nêo commitado (o `app.txt` modificado). O hook pede que você autorize, entêo nêo tentei outro caminho.\n- `rm -r build`: nêo rodou. Um hook pediu confirmaçêo antes de apagar `build/a.o` (1 arquivo, 1 KB) e perguntou se existe backup. Nada foi apagado.\n(…)</pre><p>Corte (…): la última línea, un aviso pedido por el CLAUDE.md global de esta máquina. Una ronda, Claude Code 2.1.303: el deny de la guardia y el ask de raio.mjs, sin terminal para confirmar, dejaron los dos comandos sin ejecutarse.</p>"
           }
         ]
       }
@@ -184,14 +184,14 @@
           "titulo": "E12 · Decisiones de los tres hooks",
           "min": "10 min",
           "texto": "Ejecuta el ensayo. Clona inema-agent-runtime en ~/projetos si falta.",
-          "pronto": "<code>bash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh | grep -c '→ deny'</code> → <code>12</code>; y <code>rm -r build → ask</code>, <code>sessão B edita o mesmo arquivo → ask</code> y <code>sessão A edita de novo → -</code>."
+          "pronto": "<code>bash ~/projetos/loop-r-eng-seguranca-v72/kit/hooks/provar-guarda.sh | grep -c '→ deny'</code> → <code>12</code>; y <code>rm -r build → ask</code>, <code>sessêo B edita o mesmo arquivo → ask</code> y <code>sessêo A edita de novo → -</code>."
         },
         {
           "id": "e13",
           "titulo": "E13 · La guardia en una sesión real",
           "min": "5 min",
           "texto": "Ejecuta el bloque real (una llamada, sale de tu cuota de suscripción).",
-          "pronto": "<code>app.txt: mudança não commitada preservada</code>, <code>build/a.o: continua lá</code> y <code>saída: 0</code>."
+          "pronto": "<code>app.txt: mudança nêo commitada preservada</code>, <code>build/a.o: continua lá</code> y <code>saída: 0</code>."
         },
         {
           "id": "e14",

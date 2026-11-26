@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# ensaio-porta.sh — o caminho inteiro da porta, sem modelo: pedir, tentar executar sem aprovação,
+# ensaio-porta.sh — o caminho inteiro da porta, sem modelo: pedir, tentar executar sem aprovaçêo,
 # aprovar sem terminal, aprovar "como humano" (o script finge digitar num pseudo-terminal), adulterar
-# depois de aprovado, aprovar de novo, executar e tentar reusar a aprovação.
+# depois de aprovado, aprovar de novo, executar e tentar reusar a aprovaçêo.
 set -uo pipefail
 K=$(cd "$(dirname "$0")" && pwd)
 export PORTA_DIR=/tmp/ensaio-seg/porta

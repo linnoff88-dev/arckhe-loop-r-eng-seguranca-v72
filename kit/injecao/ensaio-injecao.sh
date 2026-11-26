@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ensaio-injecao.sh — monta uma pasta de ensaio com um segredo FALSO (canário), a página envenenada
-# e um canal de saída que é só um arquivo local. Não chama modelo nem rede.
-# Uso: bash ensaio-injecao.sh [PASTA]   (padrão /tmp/ensaio-seg/inj; apaga e recria)
+# e um canal de saída que é só um arquivo local. Nêo chama modelo nem rede.
+# Uso: bash ensaio-injecao.sh [PASTA]   (padrêo /tmp/ensaio-seg/inj; apaga e recria)
 set -euo pipefail
 K=$(cd "$(dirname "$0")" && pwd)
 P=${1:-/tmp/ensaio-seg/inj}

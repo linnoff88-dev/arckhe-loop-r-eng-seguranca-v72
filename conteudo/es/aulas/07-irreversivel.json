@@ -112,7 +112,7 @@
         "abas": [
           {
             "rot": "Salida capturada (19/10/2026)",
-            "html": "<pre>pedido 20261019-065013-4181: enviar-email → cliente@exemplo.invalid (30 caracteres). Aguardando aprovação humana.\nRECUSADO: 20261019-065013-4181 sem aprovação humana\nsaída: 1\nRECUSADO: aprovar exige um terminal humano (stdin não é tty)\nsaída: 1\nAPROVADO 20261019-065013-4181 (hash 50a9d2859698c516)\nRECUSADO: o conteúdo de 20261019-065013-4181 mudou depois da aprovação\nsaída: 1\nAPROVADO 20261019-065014-b7be (hash 50a9d2859698c516)\nEXECUTADO 20261019-065014-b7be: enviar-email → cliente@exemplo.invalid\nsaída: 0\nRECUSADO: 20261019-065014-b7be sem aprovação humana\nsaída: 1\n1</pre><p>Cuatro rechazos y una ejecución; el 1 al final es la única línea en saida.log. Los ids cambian en cada ronda.</p>"
+            "html": "<pre>pedido 20261019-065013-4181: enviar-email → cliente@exemplo.invalid (30 caracteres). Aguardando aprovaçêo humana.\nRECUSADO: 20261019-065013-4181 sem aprovaçêo humana\nsaída: 1\nRECUSADO: aprovar exige um terminal humano (stdin nêo é tty)\nsaída: 1\nAPROVADO 20261019-065013-4181 (hash 50a9d2859698c516)\nRECUSADO: o conteúdo de 20261019-065013-4181 mudou depois da aprovaçêo\nsaída: 1\nAPROVADO 20261019-065014-b7be (hash 50a9d2859698c516)\nEXECUTADO 20261019-065014-b7be: enviar-email → cliente@exemplo.invalid\nsaída: 0\nRECUSADO: 20261019-065014-b7be sem aprovaçêo humana\nsaída: 1\n1</pre><p>Cuatro rechazos y una ejecución; el 1 al final es la única línea en saida.log. Los ids cambian en cada ronda.</p>"
           },
           {
             "rot": "En la vida real",
@@ -173,7 +173,7 @@
         {
           "rot": "Archivo · kit/systemd/loop-seguro.service (modelo; comentarios traducidos para lectura)",
           "icone": "arquivo",
-          "conteudo": "# loop-seguro.service — modelo de unit de usuario para correr un ciclo del agente fuera de la terminal\n# sin aumentar el radio de daño. Cambia MEU-PROJETO y verifica con prova-isolamento.sh ANTES de activarlo.\n#   cp loop-seguro.service ~/.config/systemd/user/ && systemctl --user daemon-reload\n#   systemctl --user start loop-seguro.service && journalctl --user -u loop-seguro -n 20\n#\n# Lo que sujeta de verdad (probado el 19/10/2026, systemd 255, Ubuntu, kernel con\n# apparmor_restrict_unprivileged_userns=1):\n#   - topes: MemoryMax, TimeoutStartSec (oneshot no acepta RuntimeMaxSec), timeout y flock (funcionan en el systemd --user)\n#   - aislamiento: el sandbox de Codex (-s workspace-write) DENTRO del servicio\n# Lo que NO sujetó en esta máquina: PrivateNetwork=, ProtectHome=, IPAddressDeny= en el systemd --user.\n# El journal dice \"proceeding without\" y el servicio corre sin el bloqueo. No cuentes con ellas sin prueba.\n[Unit]\nDescription=Um ciclo do loop do agente (curso Segurança do Loop Autônomo)\n\n[Service]\nType=oneshot\nWorkingDirectory=%h/projetos/MEU-PROJETO\n# PATH fixo: o serviço não herda o seu shell (nem as suas chaves). Não ponha EnvironmentFile com segredo.\nEnvironment=PATH=%h/.npm-global/bin:/usr/local/bin:/usr/bin:/bin\nStandardInput=file:%h/projetos/MEU-PROJETO/longrun/prompt.md\nExecStart=/usr/bin/flock -n %t/loop-seguro.lock timeout 2h codex exec -s workspace-write --skip-git-repo-check -C %h/projetos/MEU-PROJETO -\nMemoryMax=4G\nTimeoutStartSec=3h\nNoNewPrivileges=yes"
+          "conteudo": "# loop-seguro.service — modelo de unit de usuario para correr un ciclo del agente fuera de la terminal\n# sin aumentar el radio de daño. Cambia MEU-PROJETO y verifica con prova-isolamento.sh ANTES de activarlo.\n#   cp loop-seguro.service ~/.config/systemd/user/ && systemctl --user daemon-reload\n#   systemctl --user start loop-seguro.service && journalctl --user -u loop-seguro -n 20\n#\n# Lo que sujeta de verdad (probado el 19/10/2026, systemd 255, Ubuntu, kernel con\n# apparmor_restrict_unprivileged_userns=1):\n#   - topes: MemoryMax, TimeoutStartSec (oneshot no acepta RuntimeMaxSec), timeout y flock (funcionan en el systemd --user)\n#   - aislamiento: el sandbox de Codex (-s workspace-write) DENTRO del servicio\n# Lo que NO sujetó en esta máquina: PrivateNetwork=, ProtectHome=, IPAddressDeny= en el systemd --user.\n# El journal dice \"proceeding without\" y el servicio corre sin el bloqueo. No cuentes con ellas sin prueba.\n[Unit]\nDescription=Um ciclo do loop do agente (curso Segurança do Loop Autônomo)\n\n[Service]\nType=oneshot\nWorkingDirectory=%h/projetos/MEU-PROJETO\n# PATH fixo: o serviço nêo herda o seu shell (nem as suas chaves). Nêo ponha EnvironmentFile com segredo.\nEnvironment=PATH=%h/.npm-global/bin:/usr/local/bin:/usr/bin:/bin\nStandardInput=file:%h/projetos/MEU-PROJETO/longrun/prompt.md\nExecStart=/usr/bin/flock -n %t/loop-seguro.lock timeout 2h codex exec -s workspace-write --skip-git-repo-check -C %h/projetos/MEU-PROJETO -\nMemoryMax=4G\nTimeoutStartSec=3h\nNoNewPrivileges=yes"
         }
       ],
       "saida": {
@@ -221,7 +221,7 @@
           "titulo": "E18 · La compuerta en el ensayo",
           "min": "10 min",
           "texto": "Ejecuta el ensayo de la compuerta. Después aprueba tú mismo una solicitud, en tu terminal: python3 porta.py pedir, aprovar y executar.",
-          "pronto": "el ensayo muestra cuatro líneas <code>RECUSADO</code>, una <code>EXECUTADO</code> y termina en <code>1</code>; tu <code>executar</code> imprime <code>EXECUTADO</code> una vez y, repetido, <code>sem aprovação humana</code>."
+          "pronto": "el ensayo muestra cuatro líneas <code>RECUSADO</code>, una <code>EXECUTADO</code> y termina en <code>1</code>; tu <code>executar</code> imprime <code>EXECUTADO</code> una vez y, repetido, <code>sem aprovaçêo humana</code>."
         },
         {
           "id": "e19",
@@ -252,7 +252,7 @@
             "Para ir más rápido"
           ],
           "certa": 1,
-          "explica": "Apruebas lo que leíste. Si alguien (o el agente) cambia el texto después, el executar rechaza: \"o conteúdo mudou depois da aprovação\".",
+          "explica": "Apruebas lo que leíste. Si alguien (o el agente) cambia el texto después, el executar rechaza: \"o conteúdo mudou depois da aprovaçêo\".",
           "ref": "diagrama",
           "cert": true
         },

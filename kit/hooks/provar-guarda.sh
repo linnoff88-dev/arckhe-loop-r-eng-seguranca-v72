@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # provar-guarda.sh — manda chamadas de ferramenta FALSAS para os hooks, como o Claude Code faria,
-# e imprime a decisão de cada um. Não chama modelo. Usa a guarda.py deste kit e, se existir,
+# e imprime a decisêo de cada um. Nêo chama modelo. Usa a guarda.py deste kit e, se existir,
 # o raio.mjs e o colisao.mjs do inema-agent-runtime (RUNTIME=caminho do clone).
 set -uo pipefail
 K=$(cd "$(dirname "$0")" && pwd)
@@ -32,17 +32,17 @@ caso "$G" "bash -c 'rm -rf ~'"           "$(bash_json "bash -c 'rm -rf ~'")"
 caso "$G" "git restore ."                "$(bash_json 'git restore .')"
 caso "$G" "pytest -q tests/ > log.txt"   "$(bash_json 'pytest -q tests/ > log.txt')"
 caso "$G" "git restore --staged app.py"  "$(bash_json 'git restore --staged app.py')"
-echo "## o que a guarda NÃO pega (para isso: deny Edit/Write da aula 4 e sandbox da aula 6)"
+echo "## o que a guarda NêO pega (para isso: deny Edit/Write da aula 4 e sandbox da aula 6)"
 caso "$G" "python3 -c open('goal.md','w')" "$(bash_json "python3 -c \"open('goal.md','w')\"")"
 if [ -f "$R/raio.mjs" ]; then
-  echo "## raio.mjs (apagar pede confirmação, com a contagem)"
+  echo "## raio.mjs (apagar pede confirmaçêo, com a contagem)"
   caso "node $R/raio.mjs" "rm -r build"   "$(bash_json 'rm -r build')"
   caso "node $R/raio.mjs" "rm -r nada"    "$(bash_json 'rm -r nada')"
-  echo "## colisao.mjs (outra sessão editou há pouco)"
+  echo "## colisao.mjs (outra sessêo editou há pouco)"
   export INEMA_RUNTIME_ESTADO=$P/.estado
   printf '%s' "$(edit_json tests/test_x.py sessao-A)" | node "$R/colisao.mjs" pos
-  caso "node $R/colisao.mjs pre" "sessão B edita o mesmo arquivo" "$(edit_json tests/test_x.py sessao-B)"
-  caso "node $R/colisao.mjs pre" "sessão A edita de novo"          "$(edit_json tests/test_x.py sessao-A)"
+  caso "node $R/colisao.mjs pre" "sessêo B edita o mesmo arquivo" "$(edit_json tests/test_x.py sessao-B)"
+  caso "node $R/colisao.mjs pre" "sessêo A edita de novo"          "$(edit_json tests/test_x.py sessao-A)"
 else
-  echo "(sem $R: clone https://github.com/inematds/inema-agent-runtime para ver raio e colisão)"
+  echo "(sem $R: clone https://github.com/inematds/inema-agent-runtime para ver raio e colisêo)"
 fi

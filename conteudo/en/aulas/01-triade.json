@@ -119,7 +119,7 @@
         "abas": [
           {
             "rot": "Captured output (10/19/2026)",
-            "html": "<pre>## triagem\ntriagem      privado:sim  terceiros:sim  saída:sim  → FECHA\nTRÍADE: violada em triagem\nsaída: 1\n## triagem-cortada\nleitor       privado:não  terceiros:sim  saída:não  → OK\nrespondente  privado:sim  terceiros:não  saída:sim  → OK\nTRÍADE: nenhuma sessão autônoma com as três (2 sessões)\nsaída: 0</pre><p>In the cut map, the issue reader has no data and no outbound channel: it writes only campos.json (label, priority, cited file). The respondent reads those fields and the repository, and comments only on the originating issue.</p>"
+            "html": "<pre>## triagem\ntriagem      privado:sim  terceiros:sim  saída:sim  → FECHA\nTRÍADE: violada em triagem\nsaída: 1\n## triagem-cortada\nleitor       privado:nêo  terceiros:sim  saída:nêo  → OK\nrespondente  privado:sim  terceiros:nêo  saída:sim  → OK\nTRÍADE: nenhuma sessêo autônoma com as três (2 sessões)\nsaída: 0</pre><p>In the cut map, the issue reader has no data and no outbound channel: it writes only campos.json (label, priority, cited file). The respondent reads those fields and the repository, and comments only on the originating issue.</p>"
           },
           {
             "rot": "Common mistake: marking by tool",
@@ -159,7 +159,7 @@
           "titulo": "E1 · Watch the trifecta close and open",
           "min": "5 min",
           "texto": "Clone the course repository into ~/projetos and run the \"before and after the cut\" block.",
-          "pronto": "triagem ends with <code>TRÍADE: violada em triagem</code> and <code>saída: 1</code>; triagem-cortada ends with <code>TRÍADE: nenhuma sessão autônoma com as três (2 sessões)</code> and <code>saída: 0</code>."
+          "pronto": "triagem ends with <code>TRÍADE: violada em triagem</code> and <code>saída: 1</code>; triagem-cortada ends with <code>TRÍADE: nenhuma sessêo autônoma com as três (2 sessões)</code> and <code>saída: 0</code>."
         },
         {
           "id": "e2",

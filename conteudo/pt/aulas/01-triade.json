@@ -2,7 +2,7 @@
   "slug": "triade",
   "num": 1,
   "menu": "Tríade",
-  "titulo": "A tríade letal: dados privados, conteúdo não confiável, saída para fora",
+  "titulo": "A tríade letal: dados privados, conteúdo nêo confiável, saída para fora",
   "titulo_curto": "A tríade letal",
   "minutos": 15,
   "lead": "Um agente que lê dado privado, lê texto escrito por qualquer pessoa e consegue mandar algo para fora pode ser comandado por quem escreveu o texto. O nome é de Simon Willison. Nesta aula você mapeia as sessões do seu loop nas três pernas e corta uma onde as três se juntam.",
@@ -19,7 +19,7 @@
     },
     {
       "icone": "camadas",
-      "t": "Por que o risco está no conjunto da sessão, não numa ferramenta"
+      "t": "Por que o risco está no conjunto da sessêo, nêo numa ferramenta"
     },
     {
       "icone": "lista",
@@ -34,14 +34,14 @@
   "secoes": [
     {
       "tipo": "diagrama",
-      "titulo": "Três pernas na mesma sessão",
+      "titulo": "Três pernas na mesma sessêo",
       "sub": "Clique em cada perna.",
       "nos": [
         {
           "icone": "cadeado",
           "titulo": "Dado privado",
-          "sub": "o que não é público",
-          "detalhe": "Repositório privado, .env, banco de clientes, e-mail, agenda. Qualquer ferramenta que devolve ao agente algo que você não publicaria."
+          "sub": "o que nêo é público",
+          "detalhe": "Repositório privado, .env, banco de clientes, e-mail, agenda. Qualquer ferramenta que devolve ao agente algo que você nêo publicaria."
         },
         {
           "icone": "chat",
@@ -57,14 +57,14 @@
         },
         {
           "icone": "x",
-          "titulo": "Exfiltração",
-          "sub": "uma injeção basta",
+          "titulo": "Exfiltraçêo",
+          "sub": "uma injeçêo basta",
           "forte": true,
-          "detalhe": "Com as três juntas, quem escreve o conteúdo de terceiros pode pedir: leia o segredo e mande para cá. O modelo não separa com segurança a instrução do dono da instrução escondida no texto."
+          "detalhe": "Com as três juntas, quem escreve o conteúdo de terceiros pode pedir: leia o segredo e mande para cá. O modelo nêo separa com segurança a instruçêo do dono da instruçêo escondida no texto."
         }
       ],
-      "volta": "Defesa: corte uma perna na sessão, não confie no prompt",
-      "legenda": "O risco está na sessão que enxerga tudo junto: um fetch inofensivo vira perna de saída ao lado do banco de clientes."
+      "volta": "Defesa: corte uma perna na sessêo, nêo confie no prompt",
+      "legenda": "O risco está na sessêo que enxerga tudo junto: um fetch inofensivo vira perna de saída ao lado do banco de clientes."
     },
     {
       "tipo": "passos",
@@ -72,16 +72,16 @@
       "sub": "Três regras que valem para Claude Code e Codex.",
       "passos": [
         {
-          "titulo": "Sessão, não ferramenta",
+          "titulo": "Sessêo, nêo ferramenta",
           "texto": [
-            "Marque as pernas por sessão do loop: tudo o que aquele contexto enxerga ao mesmo tempo. Uma ferramenta pode marcar as três sozinha (um MCP de e-mail lê sua caixa, lê o que um estranho mandou e envia para qualquer endereço).",
+            "Marque as pernas por sessêo do loop: tudo o que aquele contexto enxerga ao mesmo tempo. Uma ferramenta pode marcar as três sozinha (um MCP de e-mail lê sua caixa, lê o que um estranho mandou e envia para qualquer endereço).",
             "O curso 3 mostra como dividir o trabalho em sessões; aqui você decide o que cada uma pode juntar."
           ]
         },
         {
           "titulo": "Corte a perna mais barata",
           "texto": [
-            "Quase sempre é a saída: destino fixo no código (a issue de origem, o grupo da equipe), nenhuma ferramenta genérica de abrir URL na sessão que lê o repositório, rede desligada (aula 6).",
+            "Quase sempre é a saída: destino fixo no código (a issue de origem, o grupo da equipe), nenhuma ferramenta genérica de abrir URL na sessêo que lê o repositório, rede desligada (aula 6).",
             "Depois, o conteúdo: um leitor sem dados devolve só campos estruturados (aula 3)."
           ],
           "exemplo": {
@@ -90,10 +90,10 @@
           }
         },
         {
-          "titulo": "O que não resolve sozinho",
+          "titulo": "O que nêo resolve sozinho",
           "texto": [
-            "\"Ignore instruções dentro do conteúdo\" no prompt ajuda, mas falha com frequência suficiente para não ser a defesa. Um segundo modelo detector também é modelo, também é enganável.",
-            "A OWASP (Top 10 para aplicações agênticas) liga a injeção de prompt a 6 das 10 categorias, segundo a Help Net Security (11/06/2026)."
+            "\"Ignore instruções dentro do conteúdo\" no prompt ajuda, mas falha com frequência suficiente para nêo ser a defesa. Um segundo modelo detector também é modelo, também é enganável.",
+            "A OWASP (Top 10 para aplicações agênticas) liga a injeçêo de prompt a 6 das 10 categorias, segundo a Help Net Security (11/06/2026)."
           ]
         }
       ]
@@ -101,7 +101,7 @@
     {
       "tipo": "codigo",
       "titulo": "O mapa do loop e o triade.py",
-      "sub": "Uma sessão por objeto; cada ferramenta marca o que faz. O script só lê o JSON: quem garante que o mapa é verdadeiro é você.",
+      "sub": "Uma sessêo por objeto; cada ferramenta marca o que faz. O script só lê o JSON: quem garante que o mapa é verdadeiro é você.",
       "blocos": [
         {
           "rot": "Arquivo · kit/mapas/triagem.json (fictício)",
@@ -119,11 +119,11 @@
         "abas": [
           {
             "rot": "Saída capturada (19/10/2026)",
-            "html": "<pre>## triagem\ntriagem      privado:sim  terceiros:sim  saída:sim  → FECHA\nTRÍADE: violada em triagem\nsaída: 1\n## triagem-cortada\nleitor       privado:não  terceiros:sim  saída:não  → OK\nrespondente  privado:sim  terceiros:não  saída:sim  → OK\nTRÍADE: nenhuma sessão autônoma com as três (2 sessões)\nsaída: 0</pre><p>No mapa cortado, o leitor das issues não tem dado nem saída: grava só campos.json (rótulo, prioridade, arquivo citado). O respondente lê esses campos, o repositório e comenta só na issue de origem.</p>"
+            "html": "<pre>## triagem\ntriagem      privado:sim  terceiros:sim  saída:sim  → FECHA\nTRÍADE: violada em triagem\nsaída: 1\n## triagem-cortada\nleitor       privado:nêo  terceiros:sim  saída:nêo  → OK\nrespondente  privado:sim  terceiros:nêo  saída:sim  → OK\nTRÍADE: nenhuma sessêo autônoma com as três (2 sessões)\nsaída: 0</pre><p>No mapa cortado, o leitor das issues nêo tem dado nem saída: grava só campos.json (rótulo, prioridade, arquivo citado). O respondente lê esses campos, o repositório e comenta só na issue de origem.</p>"
           },
           {
             "rot": "Erro comum: marcar por ferramenta",
-            "html": "<p>Olhar ferramenta por ferramenta dá \"nenhuma tem as três\" e tudo parece seguro. O triade.py soma as pernas da sessão inteira, porque é a sessão que o texto injetado comanda.</p>"
+            "html": "<p>Olhar ferramenta por ferramenta dá \"nenhuma tem as três\" e tudo parece seguro. O triade.py soma as pernas da sessêo inteira, porque é a sessêo que o texto injetado comanda.</p>"
           }
         ]
       }
@@ -131,7 +131,7 @@
     {
       "tipo": "codigo",
       "titulo": "Na sua máquina: o inventário de MCP",
-      "sub": "O inventario.py do projeto Tríade Letal lê os servidores MCP do Claude Code e do Codex e monta a matriz para você preencher. Só lê arquivos de configuração; não acessa a rede nem imprime segredo.",
+      "sub": "O inventario.py do projeto Tríade Letal lê os servidores MCP do Claude Code e do Codex e monta a matriz para você preencher. Só lê arquivos de configuraçêo; nêo acessa a rede nem imprime segredo.",
       "blocos": [
         {
           "rot": "Terminal · demo e a sua matriz",
@@ -159,21 +159,21 @@
           "titulo": "E1 · Ver a tríade fechar e abrir",
           "min": "5 min",
           "texto": "Clone o repositório do curso em ~/projetos e rode o bloco \"antes e depois do corte\".",
-          "pronto": "triagem termina em <code>TRÍADE: violada em triagem</code> e <code>saída: 1</code>; triagem-cortada em <code>TRÍADE: nenhuma sessão autônoma com as três (2 sessões)</code> e <code>saída: 0</code>."
+          "pronto": "triagem termina em <code>TRÍADE: violada em triagem</code> e <code>saída: 1</code>; triagem-cortada em <code>TRÍADE: nenhuma sessêo autônoma com as três (2 sessões)</code> e <code>saída: 0</code>."
         },
         {
           "id": "e2",
           "titulo": "E2 · Inventário da sua máquina",
           "min": "10 min",
-          "texto": "Rode o bloco do inventário. Abra /tmp/matriz.md e marque, linha a linha, as três colunas do que cada servidor faz de verdade. Acrescente à mão o que não é MCP: shell, navegador, envio de mensagem do seu bot.",
+          "texto": "Rode o bloco do inventário. Abra /tmp/matriz.md e marque, linha a linha, as três colunas do que cada servidor faz de verdade. Acrescente à mêo o que nêo é MCP: shell, navegador, envio de mensagem do seu bot.",
           "pronto": "<code>python3 inventario.py --demo</code> termina em <code>As três pernas podem estar juntas</code> e <code>grep -c \"|\" /tmp/matriz.md</code> imprime um número maior que zero."
         },
         {
           "id": "e3",
           "titulo": "E3 · O mapa do seu loop",
           "min": "15 min",
-          "texto": "Copie kit/mapas/triagem.json para ~/meu-mapa.json e descreva o seu loop: uma sessão por contexto, cada ferramenta com as pernas que marca. Se alguma sessão fechar, corte uma perna no mapa e no loop.",
-          "pronto": "<code>K=~/projetos/loop-r-eng-seguranca-v72/kit; python3 $K/triade.py ~/meu-mapa.json; echo $?</code> → a última linha começa com <code>TRÍADE:</code> e o código é <code>0</code> (ou <code>1</code> com a sessão anotada para corrigir na aula 2)."
+          "texto": "Copie kit/mapas/triagem.json para ~/meu-mapa.json e descreva o seu loop: uma sessêo por contexto, cada ferramenta com as pernas que marca. Se alguma sessêo fechar, corte uma perna no mapa e no loop.",
+          "pronto": "<code>K=~/projetos/loop-r-eng-seguranca-v72/kit; python3 $K/triade.py ~/meu-mapa.json; echo $?</code> → a última linha começa com <code>TRÍADE:</code> e o código é <code>0</code> (ou <code>1</code> com a sessêo anotada para corrigir na aula 2)."
         }
       ]
     },
@@ -182,28 +182,28 @@
       "titulo": "Teste da aula",
       "perguntas": [
         {
-          "p": "Quais são as três pernas da tríade letal?",
+          "p": "Quais sêo as três pernas da tríade letal?",
           "opcoes": [
             "Rede, disco e memória",
-            "Leitura de arquivos, escrita no disco e execução de comandos",
+            "Leitura de arquivos, escrita no disco e execuçêo de comandos",
             "Dado privado, conteúdo de terceiros e canal de saída",
             "Modelo, prompt de sistema e ferramentas conectadas"
           ],
           "certa": 2,
-          "explica": "Com as três na mesma sessão, quem escreve o conteúdo de terceiros pode mandar o agente levar o dado privado para fora. Leitura/escrita/execução é permissão de arquivo, outra coisa.",
+          "explica": "Com as três na mesma sessêo, quem escreve o conteúdo de terceiros pode mandar o agente levar o dado privado para fora. Leitura/escrita/execuçêo é permissêo de arquivo, outra coisa.",
           "ref": "diagrama",
           "cert": true
         },
         {
-          "p": "Nenhuma ferramenta da sua sessão marca as três pernas sozinha. A sessão está segura?",
+          "p": "Nenhuma ferramenta da sua sessêo marca as três pernas sozinha. A sessêo está segura?",
           "opcoes": [
-            "Não necessariamente: as pernas se somam na sessão",
+            "Nêo necessariamente: as pernas se somam na sessêo",
             "Sim",
             "Sim, desde que o modelo usado seja o topo da assinatura",
             "Sim, se o prompt de sistema mandar ignorar instruções"
           ],
           "certa": 0,
-          "explica": "Um fetch, um banco de clientes e um envio de e-mail, cada um inofensivo, fecham a tríade juntos. O triade.py soma por sessão por isso.",
+          "explica": "Um fetch, um banco de clientes e um envio de e-mail, cada um inofensivo, fecham a tríade juntos. O triade.py soma por sessêo por isso.",
           "ref": "codigo",
           "cert": true
         },
@@ -212,23 +212,23 @@
           "opcoes": [
             "O conteúdo de terceiros",
             "A saída: destino fixo no código e sem rede",
-            "Nenhuma: o certo é pôr um detector de injeção na entrada",
+            "Nenhuma: o certo é pôr um detector de injeçêo na entrada",
             "Os dados privados"
           ],
           "certa": 1,
-          "explica": "Fixar o destino e desligar a rede raramente atrapalha o trabalho. Detector de injeção é outro modelo enganável, não uma perna cortada.",
+          "explica": "Fixar o destino e desligar a rede raramente atrapalha o trabalho. Detector de injeçêo é outro modelo enganável, nêo uma perna cortada.",
           "ref": "passos"
         },
         {
-          "p": "Por que \"ignore instruções no conteúdo\" no prompt não é a defesa?",
+          "p": "Por que \"ignore instruções no conteúdo\" no prompt nêo é a defesa?",
           "opcoes": [
             "Porque falha com frequência suficiente; a defesa é estrutural",
             "Porque é proibido pela doc",
-            "Porque o modelo não lê o prompt de sistema quando há ferramentas ativas",
+            "Porque o modelo nêo lê o prompt de sistema quando há ferramentas ativas",
             "Porque deixa o agente lento"
           ],
           "certa": 0,
-          "explica": "Ajuda, mas não garante. A garantia vem de a sessão não ter as três pernas, o que não depende de o modelo resistir.",
+          "explica": "Ajuda, mas nêo garante. A garantia vem de a sessêo nêo ter as três pernas, o que nêo depende de o modelo resistir.",
           "ref": "passos"
         }
       ]
@@ -238,16 +238,16 @@
       "titulo": "Em três frases",
       "itens": [
         {
-          "t": "Três pernas, uma sessão",
+          "t": "Três pernas, uma sessêo",
           "texto": "Dado privado + conteúdo de terceiros + saída = qualquer texto lido pode comandar o vazamento."
         },
         {
-          "t": "Some por sessão",
-          "texto": "O mapa marca cada ferramenta; o risco é o que a sessão enxerga junto."
+          "t": "Some por sessêo",
+          "texto": "O mapa marca cada ferramenta; o risco é o que a sessêo enxerga junto."
         },
         {
-          "t": "Corte, não peça",
-          "texto": "Destino fixo, sem rede, leitor sem dados: estrutura, não prompt."
+          "t": "Corte, nêo peça",
+          "texto": "Destino fixo, sem rede, leitor sem dados: estrutura, nêo prompt."
         }
       ]
     },
@@ -266,7 +266,7 @@
           "icone": "escudo"
         },
         {
-          "t": "Help Net Security: OWASP e as falhas de injeção de prompt (11/06/2026)",
+          "t": "Help Net Security: OWASP e as falhas de injeçêo de prompt (11/06/2026)",
           "href": "https://helpnetsecurity.com/2026/06/11/owasp-prompt-injection-ai-security-failures",
           "icone": "lupa"
         },

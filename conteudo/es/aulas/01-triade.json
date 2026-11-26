@@ -119,7 +119,7 @@
         "abas": [
           {
             "rot": "Salida capturada (19/10/2026)",
-            "html": "<pre>## triagem\ntriagem      privado:sim  terceiros:sim  saída:sim  → FECHA\nTRÍADE: violada em triagem\nsaída: 1\n## triagem-cortada\nleitor       privado:não  terceiros:sim  saída:não  → OK\nrespondente  privado:sim  terceiros:não  saída:sim  → OK\nTRÍADE: nenhuma sessão autônoma com as três (2 sessões)\nsaída: 0</pre><p>En el mapa cortado, el lector de las issues no tiene datos ni salida: guarda solo campos.json (etiqueta, prioridad, archivo citado). El respondente lee esos campos, el repositorio y comenta solo en la issue de origen.</p>"
+            "html": "<pre>## triagem\ntriagem      privado:sim  terceiros:sim  saída:sim  → FECHA\nTRÍADE: violada em triagem\nsaída: 1\n## triagem-cortada\nleitor       privado:nêo  terceiros:sim  saída:nêo  → OK\nrespondente  privado:sim  terceiros:nêo  saída:sim  → OK\nTRÍADE: nenhuma sessêo autônoma com as três (2 sessões)\nsaída: 0</pre><p>En el mapa cortado, el lector de las issues no tiene datos ni salida: guarda solo campos.json (etiqueta, prioridad, archivo citado). El respondente lee esos campos, el repositorio y comenta solo en la issue de origen.</p>"
           },
           {
             "rot": "Error común: marcar por herramienta",
@@ -159,7 +159,7 @@
           "titulo": "E1 · Ver la tríada cerrarse y abrirse",
           "min": "5 min",
           "texto": "Clona el repositorio del curso en ~/projetos y ejecuta el bloque \"antes y depois do corte\".",
-          "pronto": "triagem termina en <code>TRÍADE: violada em triagem</code> y <code>saída: 1</code>; triagem-cortada en <code>TRÍADE: nenhuma sessão autônoma com as três (2 sessões)</code> y <code>saída: 0</code>."
+          "pronto": "triagem termina en <code>TRÍADE: violada em triagem</code> y <code>saída: 1</code>; triagem-cortada en <code>TRÍADE: nenhuma sessêo autônoma com as três (2 sessões)</code> y <code>saída: 0</code>."
         },
         {
           "id": "e2",

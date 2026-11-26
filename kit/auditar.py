@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """auditar.py: auditoria de segurança do seu loop, a partir do mapa (o mesmo JSON do triade.py com
-um bloco "controles" por sessão). Imprime um item por sessão e controle, e grava o checklist.
+um bloco "controles" por sessêo). Imprime um item por sessêo e controle, e grava o checklist.
 
   python3 auditar.py mapa.json                 # relatório no terminal
-  python3 auditar.py mapa.json --md check.md   # também grava o checklist em Markdown, com a correção
+  python3 auditar.py mapa.json --md check.md   # também grava o checklist em Markdown, com a correçêo
 
-Controles de cada sessão (todos opcionais; o que faltar conta como não feito):
+Controles de cada sessêo (todos opcionais; o que faltar conta como nêo feito):
   "motor": "claude" | "codex"
   "deny": [...]                regras deny do settings.json (Claude Code)
   "sandbox": "read-only" | "workspace-write" | "danger-full-access" | "nenhum"   (Codex -s, ou o seu)
   "hooks": ["guarda.py", ...]  hooks PreToolUse ligados
   "prova_isolamento": "AAAA-MM-DD OK"   saída do prova-isolamento.sh nesta máquina
-  "rede": true | false         a sessão alcança a internet
+  "rede": true | false         a sessêo alcança a internet
   "porta": true                ações irreversíveis passam pela porta.py (humano aprova)
   "tetos": {"tempo": "2h", "memoria": "4G"}
-Saída 0: tudo OK. Saída 1: algum item falhou. Saída 2: mapa inválido. Não chama modelo nem rede.
+Saída 0: tudo OK. Saída 1: algum item falhou. Saída 2: mapa inválido. Nêo chama modelo nem rede.
 """
 import json
 import sys
@@ -38,7 +38,7 @@ def itens(s):
     out.append(("tríade letal", humano or not all(p3.values()),
                 "corte uma perna: leitor sem dados nem saída que devolve só campos (aula 1)"))
     out.append(("Regra de Dois", humano or not all(p2.values()),
-                "no máximo 2 de A/B/C por sessão, ou nova sessão de contexto limpo, ou humano (aula 2)"))
+                "no máximo 2 de A/B/C por sessêo, ou nova sessêo de contexto limpo, ou humano (aula 2)"))
     motor = c.get("motor")
     if motor == "claude":
         deny = set(c.get("deny", []))
@@ -52,11 +52,11 @@ def itens(s):
         out.append(("permissões (sandbox do Codex)", c.get("sandbox") in ("read-only", "workspace-write"),
                     "use -s read-only ou -s workspace-write; nunca --yolo no loop (aula 4)"))
     else:
-        out.append(("permissões", False, 'diga o "motor" (claude ou codex) e as regras da sessão (aula 4)'))
+        out.append(("permissões", False, 'diga o "motor" (claude ou codex) e as regras da sessêo (aula 4)'))
     out.append(("isolamento provado", "OK" in str(c.get("prova_isolamento", "")),
                 "rode o prova-isolamento.sh com o mesmo wrapper do loop e anote a data (aula 6)"))
     out.append(("rede x dados privados", not (tem("privado") and c.get("rede", True)),
-                "sessão que lê dado privado roda sem rede (aula 6)"))
+                "sessêo que lê dado privado roda sem rede (aula 6)"))
     out.append(("irreversível pede humano", humano or not tem("saida") or bool(c.get("porta")),
                 "envio, push e apagar passam pela porta.py (aula 7)"))
     t = c.get("tetos", {})
